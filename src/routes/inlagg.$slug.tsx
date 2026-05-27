@@ -83,7 +83,7 @@ function PostPage() {
             </p>
           ) : (
             <ul className="space-y-6">
-              {post.comments.map((c, i: number) => (
+              {post.comments.map((c: import("../lib/posts").Comment, i: number) => (
                 <li
                   key={i}
                   className="rounded-md bg-stone-50 px-5 py-4 border border-stone-100"
