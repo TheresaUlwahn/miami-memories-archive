@@ -45,14 +45,14 @@ function PostPage() {
         </header>
 
         <div className="prose-blog space-y-5 text-stone-800 leading-relaxed text-[17px]">
-          {post.body.split("\n\n").map((para, i) => (
+          {post.body.split("\n\n").map((para: string, i: number) => (
             <p key={i}>{para}</p>
           ))}
         </div>
 
         {post.images.length > 0 && (
           <section className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {post.images.map((src, i) => (
+            {post.images.map((src: string, i: number) => (
               <figure
                 key={i}
                 className="overflow-hidden rounded-md bg-stone-100 aspect-[4/3]"
