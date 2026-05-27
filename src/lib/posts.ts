@@ -1,11 +1,18 @@
 import postsData from "../data/posts.json";
 
+export type Comment = {
+  author: string;
+  date: string;
+  content: string;
+};
+
 export type Post = {
   slug: string;
   title: string;
   date: string;
   body: string;
   images: string[];
+  comments: Comment[];
 };
 
 export const posts: Post[] = postsData as Post[];

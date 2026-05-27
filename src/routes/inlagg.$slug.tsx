@@ -72,10 +72,38 @@ function PostPage() {
         )}
 
         <section className="mt-16 border-t border-stone-200 pt-8">
-          <h2 className="font-serif text-2xl text-stone-900 mb-4">
-            Kommentarer
+          <h2 className="font-serif text-2xl text-stone-900 mb-6">
+            {post.comments.length > 0
+              ? `Kommentarer (${post.comments.length})`
+              : "Kommentarer"}
           </h2>
-          <p className="text-sm text-stone-500 italic">
+          {post.comments.length === 0 ? (
+            <p className="text-sm text-stone-500 italic">
+              Inga kommentarer på det här inlägget.
+            </p>
+          ) : (
+            <ul className="space-y-6">
+              {post.comments.map((c, i: number) => (
+                <li
+                  key={i}
+                  className="rounded-md bg-stone-50 px-5 py-4 border border-stone-100"
+                >
+                  <div className="flex items-baseline justify-between mb-2 gap-3 flex-wrap">
+                    <span className="font-medium text-stone-800">
+                      {c.author || "Anonym"}
+                    </span>
+                    <span className="text-xs text-stone-500">
+                      {c.date ? formatDate(c.date.slice(0, 10)) : ""}
+                    </span>
+                  </div>
+                  <div className="text-stone-700 text-[15px] leading-relaxed whitespace-pre-wrap">
+                    {c.content}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+          <p className="mt-8 text-xs text-stone-400 italic">
             Kommentarsfältet är stängt — bloggen är arkiverad.
           </p>
         </section>
