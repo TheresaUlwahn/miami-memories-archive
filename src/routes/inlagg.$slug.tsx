@@ -220,17 +220,17 @@ function PostBody({ body, fallbackImages }: { body: string; fallbackImages: stri
               </figure>
             );
           }
-          // image-group
-          const cols = b.images.length >= 3 ? "sm:grid-cols-3" : "sm:grid-cols-2";
+          // image-group — masonry via CSS columns (no vertical gaps)
+          const cols = b.images.length >= 3 ? "sm:columns-3" : "sm:columns-2";
           return (
-            <div key={i} className={`my-12 md:my-16 grid grid-cols-1 ${cols} gap-3 md:gap-4 items-start`}>
+            <div key={i} className={`my-12 md:my-16 columns-1 ${cols} gap-3 md:gap-4 [column-fill:_balance]`}>
               {b.images.map((im, j) => (
-                <figure key={j} className="bg-sand/40">
+                <figure key={j} className="mb-3 md:mb-4 break-inside-avoid bg-sand/40">
                   <img
                     src={im.src}
                     alt={im.alt}
                     loading="lazy"
-                    className="block w-full h-auto object-contain"
+                    className="block w-full h-auto"
                     onError={(e) => {
                       (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
                     }}
