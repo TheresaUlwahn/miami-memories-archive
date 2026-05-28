@@ -87,16 +87,16 @@ function HomePage() {
           <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl text-white mb-5 leading-[1.05] font-light">
             Miami–Ulwarna
           </h1>
-          <p className="font-serif italic text-xl md:text-2xl text-white font-light leading-snug mb-6 [text-shadow:_0_2px_8px_rgba(0,0,0,0.55),_0_1px_2px_rgba(0,0,0,0.6)]">
+          <p className="font-serif italic text-xl md:text-2xl text-white font-light leading-snug mb-6 [text-shadow:_0_2px_4px_rgba(0,0,0,0.9),_0_4px_18px_rgba(0,0,0,0.85),_0_0_30px_rgba(0,0,0,0.6)]">
             Familjeäventyr, vardagsliv och drömmar.
             <br className="hidden md:block" />
-            Om en flytt från Sverige till Miami — och tillbaka igen.
+            Från Sverige till Miami — och tillbaka igen.
           </p>
           <div className="max-w-2xl mx-auto">
-            <p className="text-sm md:text-base font-light leading-relaxed tracking-wide text-white [text-shadow:_0_2px_10px_rgba(0,0,0,0.7),_0_1px_3px_rgba(0,0,0,0.7)]">
+            <p className="text-sm md:text-base font-light leading-relaxed tracking-wide text-white [text-shadow:_0_2px_4px_rgba(0,0,0,0.95),_0_4px_20px_rgba(0,0,0,0.9),_0_0_40px_rgba(0,0,0,0.7)]">
               Inlägg skrivna för att hålla kontakten och uppdatera familj och vänner långt bort — om vår resa västerut. Långa dagboksinlägg fyllda med känslor, tankar och upplevelser, blandade med massor av bilder och massor av minnen.
             </p>
-            <p className="mt-4 text-xs md:text-sm font-light tracking-[0.2em] uppercase text-white/90 [text-shadow:_0_2px_8px_rgba(0,0,0,0.7),_0_1px_2px_rgba(0,0,0,0.7)]">
+            <p className="mt-4 text-xs md:text-sm font-light tracking-[0.2em] uppercase text-white/95 [text-shadow:_0_2px_4px_rgba(0,0,0,0.95),_0_4px_18px_rgba(0,0,0,0.85)]">
               Skrivna mellan 2015 och 2018, arkiverade här.
             </p>
           </div>
