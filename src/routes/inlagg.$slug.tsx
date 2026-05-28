@@ -223,14 +223,14 @@ function PostBody({ body, fallbackImages }: { body: string; fallbackImages: stri
           // image-group
           const cols = b.images.length >= 3 ? "sm:grid-cols-3" : "sm:grid-cols-2";
           return (
-            <div key={i} className={`my-12 md:my-16 grid grid-cols-1 ${cols} gap-3 md:gap-4`}>
+            <div key={i} className={`my-12 md:my-16 grid grid-cols-1 ${cols} gap-3 md:gap-4 items-start`}>
               {b.images.map((im, j) => (
-                <figure key={j} className="overflow-hidden bg-sand aspect-[4/5]">
+                <figure key={j} className="bg-sand/40">
                   <img
                     src={im.src}
                     alt={im.alt}
                     loading="lazy"
-                    className="block w-full h-full object-cover"
+                    className="block w-full h-auto object-contain"
                     onError={(e) => {
                       (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
                     }}
