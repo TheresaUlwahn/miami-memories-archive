@@ -86,7 +86,9 @@ function AboutPage() {
             alt="Theresa Ulwahn i Palma de Mallorca"
             loading="eager"
             decoding="async"
-            className="w-full h-auto object-cover"
+            {...imgProtect}
+            onClick={() => setLightbox(theresaHero)}
+            className="w-full h-auto object-cover cursor-zoom-in"
           />
         </figure>
 
