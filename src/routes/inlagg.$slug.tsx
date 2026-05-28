@@ -268,6 +268,3 @@ function PostBody({ body, fallbackImages }: { body: string; fallbackImages: stri
   );
 }
 
-  );
-}
-
