@@ -3,6 +3,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { posts, formatDate, getPresentationImage } from "../lib/posts";
 
 import heroImage from "../assets/hero-miami.jpg";
+import heroImageMobile from "../assets/hero-miami-mobile.jpg";
 import { ScrollToTop } from "../components/ScrollToTop";
 import { NavActions } from "../components/NavActions";
 import { useLang } from "../lib/i18n";
@@ -78,7 +79,14 @@ function HomePage() {
           alt="Miami sunset"
           width={1920}
           height={1080}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="hidden md:block absolute inset-0 w-full h-full object-cover"
+        />
+        <img
+          src={heroImageMobile}
+          alt="Barn på Miami Beach"
+          width={1280}
+          height={960}
+          className="md:hidden absolute inset-0 w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-black/30 bg-gradient-to-t from-cream via-transparent to-black/30" />
 
