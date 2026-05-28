@@ -51,7 +51,7 @@ function PostPage() {
       <Link
         to="/"
         className="block text-[11px] uppercase tracking-[0.3em] text-ink/50 hover:text-gold transition-colors mb-8"
-      >
+        {t.backToArchive}
         ← Tillbaka till arkivet
       </Link>
       <article>
