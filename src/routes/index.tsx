@@ -282,7 +282,8 @@ function PostCard({ post }: { post: (typeof posts)[number] }) {
 
           {post.title}
         </h2>
-        <p className="mt-3 text-sm text-ink/65 leading-relaxed line-clamp-2 font-light">
+        <p className="mt-3 text-sm text-ink/65 leading-relaxed line-clamp-3 font-light">
+
           {firstSentence(post.body)}
         </p>
       </Link>
@@ -295,8 +296,8 @@ function firstParagraph(body: string): string {
 
 function firstSentence(body: string): string {
   const p = firstParagraph(body);
-  const m = p.match(/^.*?[.!?](?=\s|$)/);
-  return (m ? m[0] : p).trim();
+  const matches = p.match(/.*?[.!?](?=\s|$)/g);
+  return (matches ? matches.slice(0, 2).join(" ") : p).trim();
 }
 
 
