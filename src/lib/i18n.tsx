@@ -49,7 +49,8 @@ const dict = {
     searchPlaceholder: "Search all posts…",
     searchEmpty: "Type something to search.",
     searchNoResults: "No results.",
-    close: "Close",
+} as const;
+type Dict = (typeof dict)["sv"];
     aboutChip: "About the blog",
     whoAmI: "Who I am",
   },
