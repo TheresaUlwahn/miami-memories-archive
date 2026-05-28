@@ -87,7 +87,7 @@ function HomePage() {
           width={1280}
           height={960}
           className="md:hidden absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "55% center" }}
+          style={{ objectPosition: "60% center" }}
         />
         <div className="absolute inset-0 bg-black/30 bg-gradient-to-t from-cream via-transparent to-black/30" />
 
@@ -106,7 +106,7 @@ function HomePage() {
             Miami–Ulwarna
           </h1>
           <p className="font-serif italic text-xl md:text-2xl text-white font-light leading-snug mb-6 [text-shadow:_0_2px_4px_rgba(0,0,0,0.9),_0_4px_18px_rgba(0,0,0,0.85),_0_0_30px_rgba(0,0,0,0.6)]">
-            Familjeäventyr, vardagsliv och drömmar.
+            Familjeäventyr, vardagsliv och drömmar.{" "}
             <br className="hidden md:block" />
             Från Sverige till Miami — och tillbaka igen.
           </p>
