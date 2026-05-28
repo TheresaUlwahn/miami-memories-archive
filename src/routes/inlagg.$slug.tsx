@@ -50,8 +50,8 @@ function PostPage() {
       >
         ← Tillbaka till arkivet
       </Link>
-      <article className="max-w-3xl mx-auto">
-        <header className="mt-8 mb-12 text-center">
+      <article>
+        <header className="mt-8 mb-12 text-center max-w-3xl mx-auto">
           <div className="text-[11px] uppercase tracking-[0.3em] text-rose mb-4">
             {formatDate(post.date)}
           </div>
@@ -62,33 +62,6 @@ function PostPage() {
         </header>
         <PostBody body={post.body} fallbackImages={post.images} />
 
-        {/* Gallery only shown if body has no inline images */}
-        {!hasInlineImages(post.body) && post.images.length > 1 && (
-          <section className="mt-20">
-            <h2 className="font-serif italic text-2xl text-ink/70 mb-8 text-center">
-              Bildgalleri
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {post.images.slice(1).map((src: string, i: number) => (
-                <figure
-                  key={i}
-                  className="overflow-hidden bg-sand aspect-[4/3] group"
-                >
-                  <img
-                    src={src}
-                    alt=""
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    onError={(e) => {
-                      (e.currentTarget as HTMLImageElement).style.visibility =
-                        "hidden";
-                    }}
-                  />
-                </figure>
-              ))}
-            </div>
-          </section>
-        )}
 
         <section className="mt-24 border-t border-sand pt-12 max-w-2xl mx-auto">
           <h2 className="font-serif text-3xl text-ink mb-2">
@@ -142,14 +115,14 @@ function hasInlineImages(body: string): boolean {
 
 type Block =
   | { kind: "text"; content: string }
-  | { kind: "image"; src: string; alt: string };
+  | { kind: "image"; src: string; alt: string }
+  | { kind: "image-group"; images: { src: string; alt: string }[] };
 
 function parseBlocks(body: string): Block[] {
   const blocks: Block[] = [];
   for (const para of body.split(/\n\n+/)) {
     const trimmed = para.trim();
     if (!trimmed) continue;
-    // Split paragraph into text segments and images preserving order
     let lastIdx = 0;
     let textBuf = "";
     const flushText = () => {
@@ -171,15 +144,40 @@ function parseBlocks(body: string): Block[] {
   return blocks;
 }
 
+function groupBlocks(blocks: Block[]): Block[] {
+  const out: Block[] = [];
+  let i = 0;
+  while (i < blocks.length) {
+    const b = blocks[i];
+    if (b.kind === "image") {
+      const run: { src: string; alt: string }[] = [];
+      while (i < blocks.length && blocks[i].kind === "image") {
+        const ib = blocks[i] as Extract<Block, { kind: "image" }>;
+        run.push({ src: ib.src, alt: ib.alt });
+        i++;
+      }
+      if (run.length === 1) {
+        out.push({ kind: "image", src: run[0].src, alt: run[0].alt });
+      } else {
+        out.push({ kind: "image-group", images: run });
+      }
+    } else {
+      out.push(b);
+      i++;
+    }
+  }
+  return out;
+}
+
 function PostBody({ body, fallbackImages }: { body: string; fallbackImages: string[] }) {
-  const blocks = parseBlocks(body);
+  const blocks = groupBlocks(parseBlocks(body));
   const inline = hasInlineImages(body);
+  let firstTextSeen = false;
 
   return (
-    <div className="max-w-2xl mx-auto">
-      {/* Hero image only if no inline images (legacy posts) */}
+    <div className="max-w-5xl mx-auto px-2 md:px-0">
       {!inline && fallbackImages[0] && (
-        <figure className="mb-14 -mx-6 md:mx-0 overflow-hidden bg-sand aspect-[16/10]">
+        <figure className="mb-16 overflow-hidden bg-sand aspect-[16/9]">
           <img
             src={fallbackImages[0]}
             alt=""
@@ -191,31 +189,57 @@ function PostBody({ body, fallbackImages }: { body: string; fallbackImages: stri
         </figure>
       )}
 
-      <div className="space-y-6 text-ink/85 leading-[1.85] text-[17px] md:text-[18px] font-sans">
-        {blocks.map((b, i) =>
-          b.kind === "text" ? (
-            <p key={i} className="whitespace-pre-wrap">
-              {b.content}
-            </p>
-          ) : (
-            <figure key={i} className="my-10 -mx-6 md:mx-0">
-              <img
-                src={b.src}
-                alt={b.alt}
-                loading="lazy"
-                className="block w-full h-auto bg-sand"
-                onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
-                }}
-              />
-              {b.alt && (
-                <figcaption className="mt-3 text-center text-[12px] uppercase tracking-[0.2em] text-ink/50">
-                  {b.alt}
-                </figcaption>
-              )}
-            </figure>
-          ),
-        )}
+      <div className="text-ink/85 font-sans">
+        {blocks.map((b, i) => {
+          if (b.kind === "text") {
+            const isFirst = !firstTextSeen;
+            firstTextSeen = true;
+            return (
+              <p
+                key={i}
+                className={`max-w-[680px] mx-auto whitespace-pre-wrap leading-[1.85] text-[18px] md:text-[19px] mb-7 ${
+                  isFirst ? "first-letter:font-serif first-letter:text-[5.5rem] first-letter:leading-[0.85] first-letter:float-left first-letter:mr-3 first-letter:mt-2 first-letter:text-gold" : ""
+                }`}
+              >
+                {b.content}
+              </p>
+            );
+          }
+          if (b.kind === "image") {
+            return (
+              <figure key={i} className="my-12 md:my-16">
+                <img
+                  src={b.src}
+                  alt={b.alt}
+                  loading="lazy"
+                  className="block w-full h-auto bg-sand"
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
+                  }}
+                />
+              </figure>
+            );
+          }
+          // image-group
+          const cols = b.images.length >= 3 ? "sm:grid-cols-3" : "sm:grid-cols-2";
+          return (
+            <div key={i} className={`my-12 md:my-16 grid grid-cols-1 ${cols} gap-3 md:gap-4`}>
+              {b.images.map((im, j) => (
+                <figure key={j} className="overflow-hidden bg-sand aspect-[4/5]">
+                  <img
+                    src={im.src}
+                    alt={im.alt}
+                    loading="lazy"
+                    className="block w-full h-full object-cover"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
+                    }}
+                  />
+                </figure>
+              ))}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
