@@ -14,12 +14,6 @@ export function SiteLayout({ children }: { children?: ReactNode }) {
           </Link>
           <nav className="flex gap-8 text-xs uppercase tracking-widest text-ink/80">
             <Link
-              to="/"
-              className="hover:text-gold transition-colors [&.active]:text-gold"
-            >
-              Hem
-            </Link>
-            <Link
               to="/om"
               className="hover:text-gold transition-colors [&.active]:text-gold"
             >

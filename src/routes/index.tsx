@@ -87,9 +87,6 @@ function HomePage() {
             Miami–Ulwarna
           </Link>
           <nav className="flex gap-6 md:gap-10 text-white/90 text-xs md:text-sm tracking-widest uppercase">
-            <Link to="/" className="hover:text-rose transition-colors">
-              Hem
-            </Link>
             <Link to="/om" className="hover:text-rose transition-colors">
               Om
             </Link>
@@ -122,29 +119,17 @@ function HomePage() {
 
       {/* Sticky Header + Year + Sort Ribbon */}
       <div className="sticky top-0 z-30 bg-cream/95 backdrop-blur-md border-b border-sand">
-        <div
-          className={`overflow-hidden transition-all duration-300 ${
-            isStuck ? "max-h-20 opacity-100 border-b border-sand/60" : "max-h-0 opacity-0 border-b-0"
-          }`}
-        >
-          <div className="max-w-7xl mx-auto px-6 flex justify-between items-center py-4">
-            <Link
-              to="/"
-              className="font-serif text-lg md:text-xl tracking-[0.25em] uppercase font-light text-ink"
-            >
-              Miami–Ulwarna
-            </Link>
-            <nav className="flex gap-6 md:gap-10 text-ink/80 text-xs md:text-sm tracking-widest uppercase">
-              <Link to="/" className="hover:text-gold transition-colors">
-                Hem
-              </Link>
-              <Link to="/om" className="hover:text-gold transition-colors">
-                Om
-              </Link>
-            </nav>
-          </div>
-        </div>
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 py-4">
+          <Link
+            to="/"
+            aria-hidden={!isStuck}
+            tabIndex={isStuck ? 0 : -1}
+            className={`font-serif text-sm md:text-base tracking-[0.25em] uppercase font-light text-ink whitespace-nowrap transition-opacity duration-300 ${
+              isStuck ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
+          >
+            Miami–Ulwarna
+          </Link>
           <div className="flex items-center gap-6 md:gap-8 overflow-x-auto">
             <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-gold whitespace-nowrap">
               Arkiv
@@ -199,6 +184,16 @@ function HomePage() {
               Äldsta först
             </button>
           </div>
+          <Link
+            to="/om"
+            aria-hidden={!isStuck}
+            tabIndex={isStuck ? 0 : -1}
+            className={`text-xs md:text-sm tracking-widest uppercase text-ink/80 hover:text-gold transition-all duration-300 ${
+              isStuck ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
+          >
+            Om
+          </Link>
         </div>
       </div>
 
