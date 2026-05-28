@@ -50,12 +50,6 @@ function PostPage() {
       >
         ← Tillbaka till arkivet
       </Link>
-      <article className="max-w-3xl mx-auto">
-        <header className="mt-8 mb-12 text-center">
-          <div className="text-[11px] uppercase tracking-[0.3em] text-rose mb-4">
-            {formatDate(post.date)}
-          </div>
-          <h1 className="font-serif text-4xl md:text-6xl text-ink leading-[1.05] font-light">
       <article>
         <header className="mt-8 mb-12 text-center max-w-3xl mx-auto">
           <div className="text-[11px] uppercase tracking-[0.3em] text-rose mb-4">
