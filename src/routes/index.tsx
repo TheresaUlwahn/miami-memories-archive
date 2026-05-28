@@ -164,7 +164,7 @@ function HomePage() {
             </div>
           </div>
 
-          <div className="flex gap-3 text-[11px] uppercase tracking-widest items-center">
+            <span className="text-ink/40">{t.sort}:</span>
             <span className="text-ink/40">Sortera:</span>
             <button
               onClick={() => setOrder("newest")}
