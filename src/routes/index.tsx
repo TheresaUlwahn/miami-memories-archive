@@ -87,7 +87,7 @@ function HomePage() {
           width={1280}
           height={960}
           className="md:hidden absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "45% center" }}
+          style={{ objectPosition: "55% center" }}
         />
         <div className="absolute inset-0 bg-black/30 bg-gradient-to-t from-cream via-transparent to-black/30" />
 
