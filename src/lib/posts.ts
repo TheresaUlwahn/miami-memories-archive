@@ -19,10 +19,16 @@ export function cleanTitle(title: string): string {
   return title.replace(/^\s*(miami|älta|alta)[–\-\s]*ulwarna\s*[:–\-]\s*/i, "").trim() || title;
 }
 
+export function firstBodyImage(body: string, fallback?: string[]): string | undefined {
+  const m = body.match(/!\[[^\]]*\]\(([^)\s]+)\)/);
+  return m?.[1] ?? fallback?.[0];
+}
+
 export const posts: Post[] = (postsData as Post[]).map((p) => ({
   ...p,
   title: cleanTitle(p.title),
 }));
+
 
 export function getPost(slug: string): Post | undefined {
   return posts.find((p) => p.slug === slug);
