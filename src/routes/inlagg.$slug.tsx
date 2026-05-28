@@ -56,23 +56,18 @@ function PostPage() {
             {formatDate(post.date)}
           </div>
           <h1 className="font-serif text-4xl md:text-6xl text-ink leading-[1.05] font-light">
+      <article>
+        <header className="mt-8 mb-12 text-center max-w-3xl mx-auto">
+          <div className="text-[11px] uppercase tracking-[0.3em] text-rose mb-4">
+            {formatDate(post.date)}
+          </div>
+          <h1 className="font-serif text-4xl md:text-6xl text-ink leading-[1.05] font-light">
             {post.title}
           </h1>
           <div className="mt-8 mx-auto w-16 h-px bg-gold/60" />
         </header>
         <PostBody body={post.body} fallbackImages={post.images} />
 
-        {/* Gallery only shown if body has no inline images */}
-        {!hasInlineImages(post.body) && post.images.length > 1 && (
-          <section className="mt-20">
-            <h2 className="font-serif italic text-2xl text-ink/70 mb-8 text-center">
-              Bildgalleri
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {post.images.slice(1).map((src: string, i: number) => (
-                <figure
-                  key={i}
-                  className="overflow-hidden bg-sand aspect-[4/3] group"
                 >
                   <img
                     src={src}
