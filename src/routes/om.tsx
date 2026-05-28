@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteLayout } from "../components/SiteLayout";
 import { Lightbox } from "../components/Lightbox";
+import { useLang } from "../lib/i18n";
 import theresaHero from "../assets/theresa-palma-mural.jpg";
 
 
