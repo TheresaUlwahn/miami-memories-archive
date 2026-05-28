@@ -204,7 +204,9 @@ function AboutPage() {
                   alt=""
                   loading="lazy"
                   decoding="async"
-                  className="block w-full h-auto"
+                  {...imgProtect}
+                  onClick={() => setLightbox(src)}
+                  className="block w-full h-auto cursor-zoom-in"
                   onError={(e) => {
                     (e.currentTarget as HTMLImageElement).style.visibility =
                       "hidden";
