@@ -130,6 +130,7 @@ function PostPage() {
           </p>
         </section>
       </article>
+      <ScrollToTop />
     </SiteLayout>
   );
 }
