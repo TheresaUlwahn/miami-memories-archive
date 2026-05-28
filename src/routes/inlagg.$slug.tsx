@@ -68,22 +68,6 @@ function PostPage() {
         </header>
         <PostBody body={post.body} fallbackImages={post.images} />
 
-                >
-                  <img
-                    src={src}
-                    alt=""
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    onError={(e) => {
-                      (e.currentTarget as HTMLImageElement).style.visibility =
-                        "hidden";
-                    }}
-                  />
-                </figure>
-              ))}
-            </div>
-          </section>
-        )}
 
         <section className="mt-24 border-t border-sand pt-12 max-w-2xl mx-auto">
           <h2 className="font-serif text-3xl text-ink mb-2">
