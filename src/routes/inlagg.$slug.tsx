@@ -197,7 +197,7 @@ function PostBody({ body, fallbackImages }: { body: string; fallbackImages: stri
             return (
               <p
                 key={i}
-                className={`max-w-[680px] mx-auto whitespace-pre-wrap leading-[1.85] text-[18px] md:text-[19px] mb-7 ${
+                className={`max-w-[740px] mx-auto whitespace-pre-wrap leading-[1.85] text-[18px] md:text-[19px] mb-7 ${
                   isFirst ? "first-letter:font-serif first-letter:text-[5.5rem] first-letter:leading-[0.85] first-letter:float-left first-letter:mr-3 first-letter:mt-2 first-letter:text-gold" : ""
                 }`}
               >
