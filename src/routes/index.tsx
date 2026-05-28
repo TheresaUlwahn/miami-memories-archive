@@ -32,6 +32,7 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
+  const { t } = useLang();
   const [order, setOrder] = useState<"newest" | "oldest">("newest");
   const [year, setYear] = useState<string>("all");
 
