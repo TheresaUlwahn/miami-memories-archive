@@ -295,8 +295,8 @@ function firstParagraph(body: string): string {
 
 function firstSentence(body: string): string {
   const p = firstParagraph(body);
-  const m = p.match(/^.*?[.!?](?=\s|$)/);
-  return (m ? m[0] : p).trim();
+  const matches = p.match(/.*?[.!?](?=\s|$)/g);
+  return (matches ? matches.slice(0, 2).join(" ") : p).trim();
 }
 
 
