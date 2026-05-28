@@ -289,9 +289,16 @@ function PostCard({ post }: { post: (typeof posts)[number] }) {
     </article>
   );
 }
-
 function firstParagraph(body: string): string {
   return body.split(/\n\n+/)[0]?.replace(/\s+/g, " ").trim() ?? "";
+}
+
+function firstSentence(body: string): string {
+  const p = firstParagraph(body);
+  const m = p.match(/^.*?[.!?](?=\s|$)/);
+  return (m ? m[0] : p).trim();
+}
+
 }
 
 function formatShortDate(iso: string): string {
