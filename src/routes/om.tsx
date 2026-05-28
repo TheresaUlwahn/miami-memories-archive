@@ -76,7 +76,6 @@ function AboutPage() {
           <h1 className="mt-4 font-serif text-5xl md:text-6xl text-ink leading-[1.05] font-light">
             {t.whoAmI}
           </h1>
-          </h1>
           <p className="mt-4 font-serif text-2xl text-ink/70 italic">
             Theresa Ulwahn
           </p>
