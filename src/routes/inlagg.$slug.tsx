@@ -115,12 +115,6 @@ function hasInlineImages(body: string): boolean {
 
 type Block =
   | { kind: "text"; content: string }
-  | { kind: "image"; src: string; alt: string };
-
-function parseBlocks(body: string): Block[] {
-  const blocks: Block[] = [];
-type Block =
-  | { kind: "text"; content: string }
   | { kind: "image"; src: string; alt: string }
   | { kind: "image-group"; images: { src: string; alt: string }[] };
 
