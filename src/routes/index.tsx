@@ -207,14 +207,17 @@ function FeaturedCard({ post }: { post: (typeof posts)[number] }) {
             <img
               src={post.images[0]}
               alt=""
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 [filter:saturate(0.85)_contrast(1.05)_brightness(0.97)] group-hover:[filter:saturate(1)_contrast(1.02)_brightness(1)]"
               onError={(e) => {
                 (e.currentTarget as HTMLImageElement).style.visibility =
                   "hidden";
               }}
             />
           )}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-ink/35 via-ink/5 to-gold/15 mix-blend-multiply transition-opacity duration-700 group-hover:opacity-40" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ink/30" />
         </div>
+
         <div className="flex gap-4 md:gap-6 items-start">
           <span className="hidden md:block flex-none text-gold font-bold text-[10px] tracking-tighter rotate-180 [writing-mode:vertical-lr] pt-2">
             {formatShortDate(post.date)}
@@ -246,14 +249,17 @@ function PostCard({ post }: { post: (typeof posts)[number] }) {
               src={post.images[0]}
               alt=""
               loading="lazy"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 [filter:saturate(0.85)_contrast(1.05)_brightness(0.97)] group-hover:[filter:saturate(1)_contrast(1.02)_brightness(1)]"
               onError={(e) => {
                 (e.currentTarget as HTMLImageElement).style.visibility =
                   "hidden";
               }}
             />
           )}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-ink/35 via-ink/5 to-gold/15 mix-blend-multiply transition-opacity duration-700 group-hover:opacity-40" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ink/30" />
         </div>
+
         <span className="block text-[10px] tracking-[0.2em] text-rose uppercase mb-2">
           {formatDate(post.date)}
         </span>

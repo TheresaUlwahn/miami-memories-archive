@@ -39,7 +39,7 @@
   --color-ring-offset-background: var(--background);
 
   /* Archive palette (FruUlw-matched, verbatim from selected design direction) */
-  --color-cream: #f7f1e8;
+  --color-cream: #f9f8f7;
   --color-sand: #e8d5b7;
   --color-gold: #c89968;
   --color-rose: #d4a5a5;
@@ -48,22 +48,22 @@
 
 :root {
   --radius: 0.25rem;
-  --background: #f7f1e8;
+  --background: #f9f8f7;
   --foreground: #2d2520;
-  --card: #fbf6ee;
+  --card: #ffffff;
   --card-foreground: #2d2520;
-  --popover: #f7f1e8;
+  --popover: #f9f8f7;
   --popover-foreground: #2d2520;
   --primary: #c89968;
-  --primary-foreground: #f7f1e8;
+  --primary-foreground: #f9f8f7;
   --secondary: #e8d5b7;
   --secondary-foreground: #2d2520;
-  --muted: #efe6d6;
+  --muted: #f1ede6;
   --muted-foreground: #7a6e5e;
   --accent: #d4a5a5;
   --accent-foreground: #2d2520;
   --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: #f7f1e8;
+  --destructive-foreground: #f9f8f7;
   --border: #e8d5b7;
   --input: #e8d5b7;
   --ring: #c89968;
@@ -80,7 +80,8 @@
   }
 
   body {
-    background-color: #f7f1e8;
+    background-color: #f9f8f7;
+
     color: #2d2520;
     font-family: "Karla", ui-sans-serif, system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
