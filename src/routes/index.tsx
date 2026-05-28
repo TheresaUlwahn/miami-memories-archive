@@ -240,6 +240,9 @@ function FeaturedCard({ post }: { post: (typeof posts)[number] }) {
 }
 
 function PostCard({ post }: { post: (typeof posts)[number] }) {
+  return (
+    <article className="group">
+      <Link to="/inlagg/$slug" params={{ slug: post.slug }} className="block">
         <div className="overflow-hidden bg-sand aspect-square mb-5 relative">
           {post.images[0] && (
             <img
@@ -257,9 +260,6 @@ function PostCard({ post }: { post: (typeof posts)[number] }) {
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ink/30" />
         </div>
 
-            />
-          )}
-        </div>
         <span className="block text-[10px] tracking-[0.2em] text-rose uppercase mb-2">
           {formatDate(post.date)}
         </span>
