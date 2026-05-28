@@ -299,7 +299,6 @@ function firstSentence(body: string): string {
   return (m ? m[0] : p).trim();
 }
 
-}
 
 function formatShortDate(iso: string): string {
   const d = new Date(iso);
