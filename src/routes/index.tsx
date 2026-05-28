@@ -202,6 +202,7 @@ function HomePage() {
           </Link>
         </div>
       </footer>
+      <ScrollToTop />
     </div>
   );
 }
