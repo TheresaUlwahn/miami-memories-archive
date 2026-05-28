@@ -182,18 +182,18 @@ function AboutPage() {
           <p className="text-[11px] uppercase tracking-[0.3em] text-rose mb-10 text-center">
             Glimtar från arkivet
           </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <div className="columns-2 sm:columns-3 gap-4 [column-fill:_balance]">
             {galleryImages.map((src, i) => (
               <figure
                 key={i}
-                className="overflow-hidden bg-sand aspect-square group"
+                className="mb-4 overflow-hidden bg-sand break-inside-avoid"
               >
                 <img
                   src={src}
                   alt=""
                   loading="lazy"
                   decoding="async"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="block w-full h-auto"
                   onError={(e) => {
                     (e.currentTarget as HTMLImageElement).style.visibility =
                       "hidden";
@@ -202,6 +202,7 @@ function AboutPage() {
               </figure>
             ))}
           </div>
+
         </section>
 
         <section className="mt-16 border-t border-sand pt-10 text-center">
