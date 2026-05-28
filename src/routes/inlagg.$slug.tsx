@@ -44,14 +44,13 @@ function PostPage() {
 
   return (
     <SiteLayout>
+      <Link
+        to="/"
+        className="block text-[11px] uppercase tracking-[0.3em] text-ink/50 hover:text-gold transition-colors mb-8"
+      >
+        ← Tillbaka till arkivet
+      </Link>
       <article className="max-w-3xl mx-auto">
-        <Link
-          to="/"
-          className="text-[11px] uppercase tracking-[0.3em] text-ink/50 hover:text-gold transition-colors"
-        >
-          ← Tillbaka till arkivet
-        </Link>
-
         <header className="mt-8 mb-12 text-center">
           <div className="text-[11px] uppercase tracking-[0.3em] text-rose mb-4">
             {formatDate(post.date)}

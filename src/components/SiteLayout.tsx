@@ -28,7 +28,7 @@ export function SiteLayout({ children }: { children?: ReactNode }) {
           </nav>
         </div>
       </header>
-      <main className="mx-auto max-w-3xl px-6 py-16 md:py-24">
+      <main className="mx-auto max-w-7xl px-6 md:px-10 py-16 md:py-24">
         {children ?? <Outlet />}
       </main>
       <footer className="border-t border-sand mt-24">
