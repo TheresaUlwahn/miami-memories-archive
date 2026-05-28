@@ -119,25 +119,6 @@ function HomePage() {
 
       {/* Sticky Header + Year + Sort Ribbon */}
       <div className="sticky top-0 z-30 bg-cream/95 backdrop-blur-md border-b border-sand">
-        <div
-          className={`overflow-hidden transition-all duration-300 ${
-            isStuck ? "max-h-20 opacity-100 border-b border-sand/60" : "max-h-0 opacity-0 border-b-0"
-          }`}
-        >
-          <div className="max-w-7xl mx-auto px-6 flex justify-between items-center py-4">
-            <Link
-              to="/"
-              className="font-serif text-lg md:text-xl tracking-[0.25em] uppercase font-light text-ink"
-            >
-              Miami–Ulwarna
-            </Link>
-            <nav className="flex gap-6 md:gap-10 text-ink/80 text-xs md:text-sm tracking-widest uppercase">
-              <Link to="/om" className="hover:text-gold transition-colors">
-                Om
-              </Link>
-            </nav>
-          </div>
-        </div>
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 py-4">
           <div className="flex items-center gap-6 md:gap-8 overflow-x-auto">
             <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-gold whitespace-nowrap">
