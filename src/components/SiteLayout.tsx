@@ -23,7 +23,7 @@ export function SiteLayout({ children }: { children?: ReactNode }) {
               to="/om"
               className="hover:text-gold transition-colors [&.active]:text-gold"
             >
-              Om bloggen
+              Om
             </Link>
           </nav>
         </div>
