@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import { SiteLayout } from "../components/SiteLayout";
+import { Lightbox } from "../components/Lightbox";
 import theresaHero from "../assets/theresa-palma-mural.jpg";
 
 
@@ -55,6 +57,13 @@ function ExternalLink({
 
 
 function AboutPage() {
+  const [lightbox, setLightbox] = useState<string | null>(null);
+  const imgProtect = {
+    onContextMenu: (e: React.MouseEvent) => e.preventDefault(),
+    onDragStart: (e: React.DragEvent) => e.preventDefault(),
+    draggable: false,
+    style: { WebkitUserSelect: "none", userSelect: "none", WebkitTouchCallout: "none" } as React.CSSProperties,
+  };
   return (
     <SiteLayout>
       <article className="max-w-2xl mx-auto">
@@ -77,7 +86,9 @@ function AboutPage() {
             alt="Theresa Ulwahn i Palma de Mallorca"
             loading="eager"
             decoding="async"
-            className="w-full h-auto object-cover"
+            {...imgProtect}
+            onClick={() => setLightbox(theresaHero)}
+            className="w-full h-auto object-cover cursor-zoom-in"
           />
         </figure>
 
@@ -193,7 +204,9 @@ function AboutPage() {
                   alt=""
                   loading="lazy"
                   decoding="async"
-                  className="block w-full h-auto"
+                  {...imgProtect}
+                  onClick={() => setLightbox(src)}
+                  className="block w-full h-auto cursor-zoom-in"
                   onError={(e) => {
                     (e.currentTarget as HTMLImageElement).style.visibility =
                       "hidden";
@@ -211,6 +224,9 @@ function AboutPage() {
           </p>
         </section>
       </article>
+      {lightbox && (
+        <Lightbox src={lightbox} onClose={() => setLightbox(null)} />
+      )}
     </SiteLayout>
   );
 }
