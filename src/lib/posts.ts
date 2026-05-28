@@ -15,7 +15,14 @@ export type Post = {
   comments: Comment[];
 };
 
-export const posts: Post[] = postsData as Post[];
+export function cleanTitle(title: string): string {
+  return title.replace(/^\s*miami[–\-\s]*ulwarna\s*[:–\-]\s*/i, "").trim() || title;
+}
+
+export const posts: Post[] = (postsData as Post[]).map((p) => ({
+  ...p,
+  title: cleanTitle(p.title),
+}));
 
 export function getPost(slug: string): Post | undefined {
   return posts.find((p) => p.slug === slug);
