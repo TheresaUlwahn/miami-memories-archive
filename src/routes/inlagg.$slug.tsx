@@ -51,8 +51,8 @@ function PostPage() {
       <Link
         to="/"
         className="block text-[11px] uppercase tracking-[0.3em] text-ink/50 hover:text-gold transition-colors mb-8"
+      >
         {t.backToArchive}
-        ← Tillbaka till arkivet
       </Link>
       <article>
         <header className="mt-8 mb-12 text-center max-w-3xl mx-auto">
