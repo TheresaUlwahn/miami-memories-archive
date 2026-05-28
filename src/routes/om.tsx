@@ -37,7 +37,8 @@ function ExternalLink({
   href: string;
   children: React.ReactNode;
 }) {
-    <a
+  return (
+    <
       href={href}
       target="_blank"
       rel="noopener noreferrer"
