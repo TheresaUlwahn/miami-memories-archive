@@ -37,17 +37,17 @@ function ExternalLink({
   href: string;
   children: React.ReactNode;
 }) {
-  return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="underline decoration-stone-300 underline-offset-2 hover:decoration-stone-700 transition-colors"
+      className="underline decoration-gold/50 underline-offset-2 hover:decoration-gold hover:text-gold transition-colors"
     >
       {children}
     </a>
   );
 }
+
 
 function AboutPage() {
   return (
