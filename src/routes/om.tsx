@@ -67,15 +67,16 @@ function AboutPage() {
           </h1>
           <p className="mt-4 font-serif text-2xl text-ink/70 italic">
             Theresa Ulwahn
-          </p>
-          <div className="mt-8 mx-auto w-16 h-px bg-gold/60" />
-        </header>
-
         <figure className="mt-12 overflow-hidden bg-sand">
           <img
-            src="/images/2018/07/IMG_5435.webp"
-            alt="Theresa Ulwahn"
-            loading="lazy"
+            src={theresaHero}
+            alt="Theresa Ulwahn i Palma de Mallorca"
+            loading="eager"
+            decoding="async"
+            className="w-full h-auto object-cover"
+          />
+        </figure>
+
             decoding="async"
             className="w-full h-auto object-cover"
           />
