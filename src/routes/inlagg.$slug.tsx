@@ -102,7 +102,7 @@ function PostPage() {
           )}
 
           <p className="mt-12 text-[11px] uppercase tracking-[0.3em] text-ink/40 text-center">
-            Kommentarsfältet är stängt — bloggen är arkiverad
+            {t.commentsClosed}
           </p>
         </section>
       </article>
