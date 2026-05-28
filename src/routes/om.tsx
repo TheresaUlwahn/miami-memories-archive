@@ -71,10 +71,11 @@ function AboutPage() {
       <article className="max-w-2xl mx-auto">
         <header className="text-center">
           <p className="text-[11px] uppercase tracking-[0.3em] text-rose">
-            Om bloggen
+            {t.aboutChip}
           </p>
           <h1 className="mt-4 font-serif text-5xl md:text-6xl text-ink leading-[1.05] font-light">
-            Vem är jag
+            {t.whoAmI}
+          </h1>
           </h1>
           <p className="mt-4 font-serif text-2xl text-ink/70 italic">
             Theresa Ulwahn
