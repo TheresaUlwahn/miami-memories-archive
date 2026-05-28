@@ -4,6 +4,8 @@ import { posts, formatDate, getPresentationImage } from "../lib/posts";
 
 import heroImage from "../assets/hero-miami.jpg";
 import { ScrollToTop } from "../components/ScrollToTop";
+import { NavActions } from "../components/NavActions";
+import { useLang } from "../lib/i18n";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
