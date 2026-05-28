@@ -146,7 +146,7 @@ function HomePage() {
                     : "text-ink/50 hover:text-ink"
                 }`}
               >
-                Alla
+                {t.all}
               </button>
               {years.map((y) => (
                 <button
