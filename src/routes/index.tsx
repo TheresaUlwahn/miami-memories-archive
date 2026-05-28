@@ -232,13 +232,13 @@ function HomePage() {
       <footer className="border-t border-sand">
         <div className="mx-auto max-w-7xl px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="font-serif italic text-ink/60">
-            Miami–Ulwarna · Ett digitalt arkiv · 2015–2018
+            {t.footerTagline}
           </p>
           <Link
             to="/om"
             className="text-[11px] uppercase tracking-[0.3em] text-ink/60 hover:text-gold transition-colors"
           >
-            Om bloggen
+            {t.aboutChip}
           </Link>
         </div>
       </footer>
