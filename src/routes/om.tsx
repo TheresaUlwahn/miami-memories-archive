@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "../components/SiteLayout";
+import theresaHero from "../assets/theresa-palma-mural.jpg";
+
 
 export const Route = createFileRoute("/om")({
   component: AboutPage,
