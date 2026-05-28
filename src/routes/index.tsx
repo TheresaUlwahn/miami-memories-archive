@@ -127,7 +127,7 @@ function HomePage() {
 
       {/* Sticky Header + Year + Sort Ribbon */}
       <div className="sticky top-0 z-30 bg-cream/95 backdrop-blur-md border-b border-sand">
-        <div className="w-full px-6 md:px-16 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="w-full px-6 md:px-16 py-6 flex flex-col lg:flex-row justify-between items-center gap-4">
           <Link
             to="/"
             aria-hidden={!isStuck}

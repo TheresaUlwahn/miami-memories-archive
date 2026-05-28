@@ -38,12 +38,9 @@ export function NavActions({ variant = "dark" }: { variant?: Variant }) {
           onClick={toggle}
           aria-label={t.language}
           title={lang === "sv" ? "English" : "Svenska"}
-          className={`flex items-center gap-1.5 transition-colors ${iconColor}`}
+          className={`transition-colors ${iconColor}`}
         >
           <Globe size={18} strokeWidth={1.5} />
-          <span className="text-[10px] tracking-[0.2em] font-medium">
-            {lang === "sv" ? "EN" : "SV"}
-          </span>
         </button>
       </nav>
       {searchOpen && <SearchOverlay onClose={() => setSearchOpen(false)} />}
