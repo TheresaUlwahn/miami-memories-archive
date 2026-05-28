@@ -120,6 +120,16 @@ function HomePage() {
       {/* Sticky Header + Year + Sort Ribbon */}
       <div className="sticky top-0 z-30 bg-cream/95 backdrop-blur-md border-b border-sand">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 py-4">
+          <Link
+            to="/"
+            aria-hidden={!isStuck}
+            tabIndex={isStuck ? 0 : -1}
+            className={`font-serif text-sm md:text-base tracking-[0.25em] uppercase font-light text-ink whitespace-nowrap transition-opacity duration-300 ${
+              isStuck ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
+          >
+            Miami–Ulwarna
+          </Link>
           <div className="flex items-center gap-6 md:gap-8 overflow-x-auto">
             <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-gold whitespace-nowrap">
               Arkiv
