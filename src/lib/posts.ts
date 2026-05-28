@@ -1,4 +1,5 @@
 import postsData from "../data/posts.json";
+import presentationImagesData from "../data/presentation-images.json";
 
 export type Comment = {
   author: string;
@@ -19,15 +20,16 @@ export function cleanTitle(title: string): string {
   return title.replace(/^\s*(miami|älta|alta)[–\-\s]*ulwarna\s*[:–\-]\s*/i, "").trim() || title;
 }
 
-export function firstBodyImage(body: string, fallback?: string[]): string | undefined {
-  const m = body.match(/!\[[^\]]*\]\(([^)\s]+)\)/);
-  return m?.[1] ?? fallback?.[0];
-}
+const presentationImages = presentationImagesData as Record<string, string>;
 
 export const posts: Post[] = (postsData as Post[]).map((p) => ({
   ...p,
   title: cleanTitle(p.title),
 }));
+
+export function getPresentationImage(post: Pick<Post, "slug" | "images">): string | undefined {
+  return presentationImages[post.slug] ?? post.images[0];
+}
 
 
 export function getPost(slug: string): Post | undefined {
