@@ -57,6 +57,7 @@ function ExternalLink({
 
 
 function AboutPage() {
+  const { t } = useLang();
   const [lightbox, setLightbox] = useState<string | null>(null);
   const imgProtect = {
     onContextMenu: (e: React.MouseEvent) => e.preventDefault(),
