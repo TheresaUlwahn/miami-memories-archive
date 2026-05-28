@@ -4,6 +4,7 @@ import { SiteLayout } from "../components/SiteLayout";
 import { ScrollToTop } from "../components/ScrollToTop";
 import { Lightbox } from "../components/Lightbox";
 import { getPost, formatDate, type Comment } from "../lib/posts";
+import { useLang } from "../lib/i18n";
 
 export const Route = createFileRoute("/inlagg/$slug")({
   component: PostPage,
