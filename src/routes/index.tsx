@@ -202,7 +202,7 @@ function HomePage() {
       <main className="max-w-7xl mx-auto px-6 py-16 md:py-24">
         {filtered.length === 0 ? (
           <p className="text-center text-ink/60 py-20 font-serif italic text-xl">
-            Inga inlägg från det året.
+            {t.noPostsYear}
           </p>
         ) : (
           <>
