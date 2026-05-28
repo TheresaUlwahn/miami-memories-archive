@@ -73,20 +73,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Miami–Ulwarna · Ett digitalt arkiv" },
+      { title: "Miami–Ulwarna · Ett digitalt arkiv om flytten till Miami" },
       {
         name: "description",
         content:
           "En avslutad blogg om en flytt från Sverige till Miami och tillbaka, 2015–2018.",
       },
-      { property: "og:title", content: "Miami–Ulwarna · Ett digitalt arkiv" },
+      { property: "og:title", content: "Miami–Ulwarna · Ett digitalt arkiv om flytten till Miami" },
       { property: "og:type", content: "website" },
-      { name: "twitter:title", content: "Miami–Ulwarna · Ett digitalt arkiv" },
+      { name: "twitter:title", content: "Miami–Ulwarna · Ett digitalt arkiv om flytten till Miami" },
       { name: "description", content: "Miami Memories Archive is a personal blog and digital archive of a move from Sweden to Miami and back." },
       { property: "og:description", content: "Miami Memories Archive is a personal blog and digital archive of a move from Sweden to Miami and back." },
       { name: "twitter:description", content: "Miami Memories Archive is a personal blog and digital archive of a move from Sweden to Miami and back." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e658f779-4a54-41cc-8734-b118e037ecbe/id-preview-dc039a86--75f122b6-f448-40c8-b62c-8411f797d058.lovable.app-1779887647522.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e658f779-4a54-41cc-8734-b118e037ecbe/id-preview-dc039a86--75f122b6-f448-40c8-b62c-8411f797d058.lovable.app-1779887647522.png" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/xgxmNEHoiDRleToZXHl0ekxWpeq2/social-images/social-1780011473559-Screenshot_2026-05-29_at_01.34.51.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/xgxmNEHoiDRleToZXHl0ekxWpeq2/social-images/social-1780011473559-Screenshot_2026-05-29_at_01.34.51.webp" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
