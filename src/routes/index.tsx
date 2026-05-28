@@ -124,7 +124,11 @@ function HomePage() {
             to="/"
             aria-hidden={!isStuck}
             tabIndex={isStuck ? 0 : -1}
-            className={`font-serif text-xl tracking-[0.25em] uppercase font-light text-ink whitespace-nowrap transition-opacity duration-300 ${
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            className={`font-serif text-xl tracking-[0.25em] uppercase font-light text-ink whitespace-nowrap transition-opacity duration-300 cursor-pointer ${
               isStuck ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
           >
