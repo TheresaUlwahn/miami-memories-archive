@@ -53,6 +53,19 @@ function HomePage() {
   const featured = filtered[0];
   const rest = filtered.slice(1);
 
+  const sentinelRef = useRef<HTMLDivElement | null>(null);
+  const [isStuck, setIsStuck] = useState(false);
+  useEffect(() => {
+    const el = sentinelRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => setIsStuck(!entry.isIntersecting),
+      { threshold: 0 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen w-full bg-cream text-ink">
       {/* Cinematic Hero */}
