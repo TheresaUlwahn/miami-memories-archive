@@ -32,7 +32,7 @@ const galleryImages = [
   "/images/2018/07/IMG_5435.webp",
 ];
 
-];
+
 
 function ExternalLink({
   href,
