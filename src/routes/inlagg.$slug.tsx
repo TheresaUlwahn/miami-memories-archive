@@ -60,28 +60,10 @@ function PostPage() {
           </h1>
           <div className="mt-8 mx-auto w-16 h-px bg-gold/60" />
         </header>
+        <PostBody body={post.body} fallbackImages={post.images} />
 
-        {post.images[0] && (
-          <figure className="mb-14 overflow-hidden bg-sand aspect-[16/10]">
-            <img
-              src={post.images[0]}
-              alt=""
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                (e.currentTarget as HTMLImageElement).style.visibility =
-                  "hidden";
-              }}
-            />
-          </figure>
-        )}
-
-        <div className="space-y-6 text-ink/85 leading-[1.85] text-[17px] md:text-[18px] font-sans max-w-2xl mx-auto">
-          {post.body.split("\n\n").map((para: string, i: number) => (
-            <p key={i}>{para}</p>
-          ))}
-        </div>
-
-        {post.images.length > 1 && (
+        {/* Gallery only shown if body has no inline images */}
+        {!hasInlineImages(post.body) && post.images.length > 1 && (
           <section className="mt-20">
             <h2 className="font-serif italic text-2xl text-ink/70 mb-8 text-center">
               Bildgalleri
@@ -105,6 +87,9 @@ function PostPage() {
                 </figure>
               ))}
             </div>
+          </section>
+        )}
+
           </section>
         )}
 
