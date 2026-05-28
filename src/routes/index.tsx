@@ -135,7 +135,7 @@ function HomePage() {
           </Link>
           <div className="flex items-center gap-6 md:gap-8 overflow-x-auto">
             <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-gold whitespace-nowrap">
-              Arkiv
+              {t.archive}
             </span>
             <div className="flex gap-4 md:gap-6 text-xs md:text-sm tracking-widest uppercase">
               <button
