@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { posts, formatDate, firstBodyImage } from "../lib/posts";
+import { posts, formatDate, getPresentationImage } from "../lib/posts";
 
 import heroImage from "../assets/hero-miami.jpg";
 import { ScrollToTop } from "../components/ScrollToTop";
@@ -213,9 +213,9 @@ function FeaturedCard({ post }: { post: (typeof posts)[number] }) {
     <article className="group lg:col-span-2">
       <Link to="/inlagg/$slug" params={{ slug: post.slug }} className="block">
         <div className="overflow-hidden bg-sand aspect-[16/9] mb-8 relative">
-          {post.images[0] && (
+          {getPresentationImage(post) && (
             <img
-              src={post.images[0]}
+              src={getPresentationImage(post)}
               alt=""
               className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 [filter:saturate(0.85)_contrast(1.05)_brightness(0.97)] group-hover:[filter:saturate(1)_contrast(1.02)_brightness(1)]"
               onError={(e) => {
@@ -256,9 +256,9 @@ function PostCard({ post }: { post: (typeof posts)[number] }) {
     <article className="group">
       <Link to="/inlagg/$slug" params={{ slug: post.slug }} className="block">
         <div className="overflow-hidden bg-sand mb-5 relative">
-          {post.images[0] && (
+          {getPresentationImage(post) && (
             <img
-              src={post.images[0]}
+              src={getPresentationImage(post)}
               alt=""
               loading="lazy"
               className="block w-full h-auto transition-all duration-700 group-hover:scale-[1.03] [filter:saturate(0.85)_contrast(1.05)_brightness(0.97)] group-hover:[filter:saturate(1)_contrast(1.02)_brightness(1)]"
