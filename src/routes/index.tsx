@@ -258,18 +258,22 @@ function PostCard({ post }: { post: (typeof posts)[number] }) {
     <article className="group">
       <Link to="/inlagg/$slug" params={{ slug: post.slug }} className="block">
         <div className="overflow-hidden bg-sand mb-5 relative">
-          {post.images[0] && (
-            <img
-              src={post.images[0]}
-              alt=""
-              loading="lazy"
-              className="block w-full h-auto transition-all duration-700 group-hover:scale-[1.03] [filter:saturate(0.85)_contrast(1.05)_brightness(0.97)] group-hover:[filter:saturate(1)_contrast(1.02)_brightness(1)]"
-              onError={(e) => {
-                (e.currentTarget as HTMLImageElement).style.visibility =
-                  "hidden";
-              }}
-            />
-          )}
+          {(() => {
+            const heroImg = firstBodyImage(post.body, post.images);
+            return heroImg ? (
+              <img
+                src={heroImg}
+                alt=""
+                loading="lazy"
+                className="block w-full h-auto transition-all duration-700 group-hover:scale-[1.03] [filter:saturate(0.85)_contrast(1.05)_brightness(0.97)] group-hover:[filter:saturate(1)_contrast(1.02)_brightness(1)]"
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).style.visibility =
+                    "hidden";
+                }}
+              />
+            ) : null;
+          })()}
+
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-ink/35 via-ink/5 to-gold/15 mix-blend-multiply transition-opacity duration-700 group-hover:opacity-40" />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ink/30" />
         </div>
