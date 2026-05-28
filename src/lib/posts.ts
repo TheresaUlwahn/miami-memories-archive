@@ -16,7 +16,7 @@ export type Post = {
 };
 
 export function cleanTitle(title: string): string {
-  return title.replace(/^\s*miami[–\-\s]*ulwarna\s*[:–\-]\s*/i, "").trim() || title;
+  return title.replace(/^\s*(miami|älta|alta)[–\-\s]*ulwarna\s*[:–\-]\s*/i, "").trim() || title;
 }
 
 export const posts: Post[] = (postsData as Post[]).map((p) => ({
