@@ -49,14 +49,13 @@ const dict = {
     searchPlaceholder: "Search all posts…",
     searchEmpty: "Type something to search.",
     searchNoResults: "No results.",
-} as const;
-type Dict = (typeof dict)["sv"];
+    close: "Close",
     aboutChip: "About the blog",
     whoAmI: "Who I am",
   },
-} as const;
+};
 
-type Dict = typeof dict.sv;
+type Dict = (typeof dict)["sv"];
 
 const LangContext = createContext<{
   lang: Lang;
