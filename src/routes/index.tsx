@@ -164,15 +164,22 @@ function HomePage() {
             Inga inlägg från det året.
           </p>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16 md:gap-y-20">
+          <>
             {featured && (
-              <FeaturedCard post={featured} />
+              <div className="mb-16 md:mb-24">
+                <FeaturedCard post={featured} />
+              </div>
             )}
-            {rest.map((post) => (
-              <PostCard key={post.slug} post={post} />
-            ))}
-          </div>
+            <div className="columns-1 md:columns-2 lg:columns-3 gap-x-10 [column-fill:_balance]">
+              {rest.map((post) => (
+                <div key={post.slug} className="mb-16 md:mb-20 break-inside-avoid">
+                  <PostCard post={post} />
+                </div>
+              ))}
+            </div>
+          </>
         )}
+
 
         <div className="mt-24 md:mt-32 pt-10 border-t border-sand text-center">
           <p className="text-[11px] tracking-[0.4em] uppercase text-ink/50">
@@ -243,13 +250,13 @@ function PostCard({ post }: { post: (typeof posts)[number] }) {
   return (
     <article className="group">
       <Link to="/inlagg/$slug" params={{ slug: post.slug }} className="block">
-        <div className="overflow-hidden bg-sand aspect-square mb-5 relative">
+        <div className="overflow-hidden bg-sand mb-5 relative">
           {post.images[0] && (
             <img
               src={post.images[0]}
               alt=""
               loading="lazy"
-              className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 [filter:saturate(0.85)_contrast(1.05)_brightness(0.97)] group-hover:[filter:saturate(1)_contrast(1.02)_brightness(1)]"
+              className="block w-full h-auto transition-all duration-700 group-hover:scale-[1.03] [filter:saturate(0.85)_contrast(1.05)_brightness(0.97)] group-hover:[filter:saturate(1)_contrast(1.02)_brightness(1)]"
               onError={(e) => {
                 (e.currentTarget as HTMLImageElement).style.visibility =
                   "hidden";
