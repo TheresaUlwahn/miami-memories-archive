@@ -164,15 +164,22 @@ function HomePage() {
             Inga inlägg från det året.
           </p>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16 md:gap-y-20">
+          <>
             {featured && (
-              <FeaturedCard post={featured} />
+              <div className="mb-16 md:mb-24">
+                <FeaturedCard post={featured} />
+              </div>
             )}
-            {rest.map((post) => (
-              <PostCard key={post.slug} post={post} />
-            ))}
-          </div>
+            <div className="columns-1 md:columns-2 lg:columns-3 gap-x-10 [column-fill:_balance]">
+              {rest.map((post) => (
+                <div key={post.slug} className="mb-16 md:mb-20 break-inside-avoid">
+                  <PostCard post={post} />
+                </div>
+              ))}
+            </div>
+          </>
         )}
+
 
         <div className="mt-24 md:mt-32 pt-10 border-t border-sand text-center">
           <p className="text-[11px] tracking-[0.4em] uppercase text-ink/50">
