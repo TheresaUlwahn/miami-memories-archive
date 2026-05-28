@@ -93,7 +93,9 @@ function HomePage() {
             Efter Miami. Hemma igen.
           </p>
           <p className="max-w-2xl mx-auto text-sm md:text-base text-white/75 font-light leading-relaxed tracking-wide">
-            En berättelse skriven för att uppdatera familj och vänner långt bort — om vår resa västerut med våra Ulwungar. Dagboksinlägg fyllda med känslor, tankar, nya erfarenheter och upplevelser, blandat med massor och återigen massor av bilder. Om en flytt från Sverige till Miami — och tillbaka igen. Skrivna mellan 2015 och 2018, arkiverade här.
+            En berättelse skriven för att uppdatera familj och vänner långt bort — om vår resa västerut med våra Ulwungar. Långa dagboksinlägg fyllda med känslor, tankar och upplevelser, blandat med massor och återigen massor av bilder.
+            <br className="hidden md:block" />
+            <span className="block mt-3">Om en flytt från Sverige till Miami — och tillbaka igen. Skrivna mellan 2015 och 2018, arkiverade här.</span>
           </p>
         </div>
 
