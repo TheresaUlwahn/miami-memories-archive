@@ -86,11 +86,7 @@ function HomePage() {
           >
             Miami–Ulwarna
           </Link>
-          <nav className="flex gap-6 md:gap-10 text-white/90 text-xs md:text-sm tracking-widest uppercase">
-            <Link to="/om" className="hover:text-rose transition-colors">
-              Om
-            </Link>
-          </nav>
+          <NavActions variant="light" />
         </header>
 
         <div className="relative z-10 text-center px-6 max-w-4xl">
