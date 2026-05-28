@@ -282,8 +282,6 @@ function PostCard({ post }: { post: (typeof posts)[number] }) {
         <p className="mt-3 text-sm text-ink/65 leading-relaxed line-clamp-2 font-light">
           {firstSentence(post.body)}
         </p>
-          {post.title}
-        </h2>
       </Link>
     </article>
   );
