@@ -184,6 +184,16 @@ function HomePage() {
               Äldsta först
             </button>
           </div>
+          <Link
+            to="/om"
+            aria-hidden={!isStuck}
+            tabIndex={isStuck ? 0 : -1}
+            className={`text-xs md:text-sm tracking-widest uppercase text-ink/80 hover:text-gold transition-all duration-300 ${
+              isStuck ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
+          >
+            Om
+          </Link>
         </div>
       </div>
 
