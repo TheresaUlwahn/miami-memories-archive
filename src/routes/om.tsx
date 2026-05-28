@@ -57,6 +57,13 @@ function ExternalLink({
 
 
 function AboutPage() {
+  const [lightbox, setLightbox] = useState<string | null>(null);
+  const imgProtect = {
+    onContextMenu: (e: React.MouseEvent) => e.preventDefault(),
+    onDragStart: (e: React.DragEvent) => e.preventDefault(),
+    draggable: false,
+    style: { WebkitUserSelect: "none", userSelect: "none", WebkitTouchCallout: "none" } as React.CSSProperties,
+  };
   return (
     <SiteLayout>
       <article className="max-w-2xl mx-auto">
