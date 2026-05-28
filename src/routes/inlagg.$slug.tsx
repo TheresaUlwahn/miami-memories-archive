@@ -90,9 +90,6 @@ function PostPage() {
           </section>
         )}
 
-          </section>
-        )}
-
         <section className="mt-24 border-t border-sand pt-12 max-w-2xl mx-auto">
           <h2 className="font-serif text-3xl text-ink mb-2">
             Kommentarer
