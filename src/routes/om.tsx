@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteLayout } from "../components/SiteLayout";
 import { Lightbox } from "../components/Lightbox";
+import { useLang } from "../lib/i18n";
 import theresaHero from "../assets/theresa-palma-mural.jpg";
 
 
@@ -57,6 +58,7 @@ function ExternalLink({
 
 
 function AboutPage() {
+  const { t } = useLang();
   const [lightbox, setLightbox] = useState<string | null>(null);
   const imgProtect = {
     onContextMenu: (e: React.MouseEvent) => e.preventDefault(),
@@ -69,10 +71,10 @@ function AboutPage() {
       <article className="max-w-2xl mx-auto">
         <header className="text-center">
           <p className="text-[11px] uppercase tracking-[0.3em] text-rose">
-            Om bloggen
+            {t.aboutChip}
           </p>
           <h1 className="mt-4 font-serif text-5xl md:text-6xl text-ink leading-[1.05] font-light">
-            Vem är jag
+            {t.whoAmI}
           </h1>
           <p className="mt-4 font-serif text-2xl text-ink/70 italic">
             Theresa Ulwahn

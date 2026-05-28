@@ -4,6 +4,8 @@ import { posts, formatDate, getPresentationImage } from "../lib/posts";
 
 import heroImage from "../assets/hero-miami.jpg";
 import { ScrollToTop } from "../components/ScrollToTop";
+import { NavActions } from "../components/NavActions";
+import { useLang } from "../lib/i18n";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -30,6 +32,7 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
+  const { t } = useLang();
   const [order, setOrder] = useState<"newest" | "oldest">("newest");
   const [year, setYear] = useState<string>("all");
 
@@ -86,11 +89,7 @@ function HomePage() {
           >
             Miami–Ulwarna
           </Link>
-          <nav className="flex gap-6 md:gap-10 text-white/90 text-xs md:text-sm tracking-widest uppercase">
-            <Link to="/om" className="hover:text-rose transition-colors">
-              Om
-            </Link>
-          </nav>
+          <NavActions variant="light" />
         </header>
 
         <div className="relative z-10 text-center px-6 max-w-4xl">
@@ -136,7 +135,7 @@ function HomePage() {
           </Link>
           <div className="flex items-center gap-6 md:gap-8 overflow-x-auto">
             <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-gold whitespace-nowrap">
-              Arkiv
+              {t.archive}
             </span>
             <div className="flex gap-4 md:gap-6 text-xs md:text-sm tracking-widest uppercase">
               <button
@@ -147,7 +146,7 @@ function HomePage() {
                     : "text-ink/50 hover:text-ink"
                 }`}
               >
-                Alla
+                {t.all}
               </button>
               {years.map((y) => (
                 <button
@@ -166,7 +165,7 @@ function HomePage() {
           </div>
 
           <div className="flex gap-3 text-[11px] uppercase tracking-widest items-center">
-            <span className="text-ink/40">Sortera:</span>
+            <span className="text-ink/40">{t.sort}:</span>
             <button
               onClick={() => setOrder("newest")}
               className={`cursor-pointer transition-colors ${
@@ -175,7 +174,7 @@ function HomePage() {
                   : "text-ink/40 hover:text-ink"
               }`}
             >
-              Nyaste först
+              {t.newestFirst}
             </button>
             <button
               onClick={() => setOrder("oldest")}
@@ -185,19 +184,17 @@ function HomePage() {
                   : "text-ink/40 hover:text-ink"
               }`}
             >
-              Äldsta först
+              {t.oldestFirst}
             </button>
           </div>
-          <Link
-            to="/om"
+          <div
             aria-hidden={!isStuck}
-            tabIndex={isStuck ? 0 : -1}
-            className={`text-xs md:text-sm tracking-widest uppercase text-ink/80 hover:text-gold transition-all duration-300 ${
+            className={`transition-opacity duration-300 ${
               isStuck ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
           >
-            Om
-          </Link>
+            <NavActions variant="dark" />
+          </div>
         </div>
       </div>
 
@@ -205,7 +202,7 @@ function HomePage() {
       <main className="max-w-7xl mx-auto px-6 py-16 md:py-24">
         {filtered.length === 0 ? (
           <p className="text-center text-ink/60 py-20 font-serif italic text-xl">
-            Inga inlägg från det året.
+            {t.noPostsYear}
           </p>
         ) : (
           <>
@@ -227,7 +224,7 @@ function HomePage() {
 
         <div className="mt-24 md:mt-32 pt-10 border-t border-sand text-center">
           <p className="text-[11px] tracking-[0.4em] uppercase text-ink/50">
-            {filtered.length} inlägg{year !== "all" ? ` från ${year}` : ""}
+            {t.postsCount(filtered.length, year !== "all" ? year : null)}
           </p>
         </div>
       </main>
@@ -235,13 +232,13 @@ function HomePage() {
       <footer className="border-t border-sand">
         <div className="mx-auto max-w-7xl px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="font-serif italic text-ink/60">
-            Miami–Ulwarna · Ett digitalt arkiv · 2015–2018
+            {t.footerTagline}
           </p>
           <Link
             to="/om"
             className="text-[11px] uppercase tracking-[0.3em] text-ink/60 hover:text-gold transition-colors"
           >
-            Om bloggen
+            {t.aboutChip}
           </Link>
         </div>
       </footer>

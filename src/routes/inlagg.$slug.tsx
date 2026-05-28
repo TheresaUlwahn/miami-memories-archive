@@ -4,6 +4,7 @@ import { SiteLayout } from "../components/SiteLayout";
 import { ScrollToTop } from "../components/ScrollToTop";
 import { Lightbox } from "../components/Lightbox";
 import { getPost, formatDate, type Comment } from "../lib/posts";
+import { useLang } from "../lib/i18n";
 
 export const Route = createFileRoute("/inlagg/$slug")({
   component: PostPage,
@@ -43,6 +44,7 @@ export const Route = createFileRoute("/inlagg/$slug")({
 
 function PostPage() {
   const { post } = Route.useLoaderData();
+  const { t } = useLang();
 
   return (
     <SiteLayout>
@@ -50,7 +52,7 @@ function PostPage() {
         to="/"
         className="block text-[11px] uppercase tracking-[0.3em] text-ink/50 hover:text-gold transition-colors mb-8"
       >
-        ← Tillbaka till arkivet
+        {t.backToArchive}
       </Link>
       <article>
         <header className="mt-8 mb-12 text-center max-w-3xl mx-auto">
@@ -67,17 +69,17 @@ function PostPage() {
 
         <section className="mt-24 border-t border-sand pt-12 max-w-2xl mx-auto">
           <h2 className="font-serif text-3xl text-ink mb-2">
-            Kommentarer
+            {t.comments}
           </h2>
           <p className="text-[11px] uppercase tracking-[0.3em] text-rose mb-10">
             {post.comments.length === 0
-              ? "Inga kommentarer"
-              : `${post.comments.length} röster från då`}
+              ? t.noComments
+              : t.commentsCount(post.comments.length)}
           </p>
 
           {post.comments.length === 0 ? (
             <p className="font-serif italic text-ink/50">
-              Inga kommentarer på det här inlägget.
+              {t.noCommentsOnPost}
             </p>
           ) : (
             <ul className="space-y-8">
@@ -100,7 +102,7 @@ function PostPage() {
           )}
 
           <p className="mt-12 text-[11px] uppercase tracking-[0.3em] text-ink/40 text-center">
-            Kommentarsfältet är stängt — bloggen är arkiverad
+            {t.commentsClosed}
           </p>
         </section>
       </article>
