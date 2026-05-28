@@ -78,12 +78,12 @@ function HomePage() {
               Hem
             </Link>
             <Link to="/om" className="hover:text-rose transition-colors">
-              Om bloggen
+            <Link to="/" className="hover:text-rose transition-colors">
+              Hem
             </Link>
-          </nav>
-        </header>
-
-        <div className="relative z-10 text-center px-6 max-w-4xl">
+            <Link to="/om" className="hover:text-rose transition-colors">
+              Om
+            </Link>
           <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl text-white mb-5 leading-[1.05] font-light">
             Miami–Ulwarna
           </h1>
