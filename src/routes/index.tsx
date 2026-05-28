@@ -82,16 +82,19 @@ function HomePage() {
         </header>
 
         <div className="relative z-10 text-center px-6 max-w-4xl">
-          <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl text-white mb-6 leading-[1.05] font-light">
+          <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl text-white mb-5 leading-[1.05] font-light">
             Miami–Ulwarna
           </h1>
-          <p className="font-serif italic max-w-2xl mx-auto text-lg md:text-xl text-white/90 font-light leading-relaxed">
-            En berättelse i {posts.length} inlägg om en flytt från Sverige till
-            Miami — och tillbaka igen.
+          <p className="font-serif italic text-xl md:text-2xl text-white/95 font-light leading-snug mb-5">
+            Familjeäventyr, vardagsliv och drömmar.
             <br className="hidden md:block" />
-            Skriven mellan 2015 och 2018.
+            Efter Miami. Hemma igen.
+          </p>
+          <p className="max-w-xl mx-auto text-sm md:text-base text-white/75 font-light leading-relaxed tracking-wide">
+            {posts.length} inlägg om en flytt från Sverige till Miami — och tillbaka igen. Skrivna mellan 2015 och 2018, arkiverade här.
           </p>
         </div>
+
       </section>
 
       {/* Sticky Year + Sort Ribbon */}
