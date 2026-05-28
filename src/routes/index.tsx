@@ -93,7 +93,9 @@ function HomePage() {
             Efter Miami. Hemma igen.
           </p>
           <p className="max-w-2xl mx-auto text-sm md:text-base text-white/75 font-light leading-relaxed tracking-wide">
-            En berättelse skriven för att uppdatera familj och vänner långt bort — om vår resa västerut med våra Ulwungar. Dagboksinlägg fyllda med känslor, tankar, nya erfarenheter och upplevelser, blandat med massor och återigen massor av bilder. Om en flytt från Sverige till Miami — och tillbaka igen. Skrivna mellan 2015 och 2018, arkiverade här.
+            En berättelse skriven för att uppdatera familj och vänner långt bort — om vår resa västerut med våra Ulwungar. Långa dagboksinlägg fyllda med känslor, tankar och upplevelser, blandat med massor och återigen massor av bilder.
+            <br className="hidden md:block" />
+            <span className="block mt-3">Om en flytt från Sverige till Miami — och tillbaka igen. Skrivna mellan 2015 och 2018, arkiverade här.</span>
           </p>
         </div>
 
@@ -277,16 +279,26 @@ function PostCard({ post }: { post: (typeof posts)[number] }) {
           {formatDate(post.date)}
         </span>
         <h2 className="font-serif text-2xl md:text-[1.7rem] group-hover:text-gold transition-colors leading-tight">
+
           {post.title}
         </h2>
+        <p className="mt-3 text-sm text-ink/65 leading-relaxed line-clamp-2 font-light">
+          {firstSentence(post.body)}
+        </p>
       </Link>
     </article>
   );
 }
-
 function firstParagraph(body: string): string {
   return body.split(/\n\n+/)[0]?.replace(/\s+/g, " ").trim() ?? "";
 }
+
+function firstSentence(body: string): string {
+  const p = firstParagraph(body);
+  const m = p.match(/^.*?[.!?](?=\s|$)/);
+  return (m ? m[0] : p).trim();
+}
+
 
 function formatShortDate(iso: string): string {
   const d = new Date(iso);
