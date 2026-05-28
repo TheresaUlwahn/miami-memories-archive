@@ -69,17 +69,17 @@ function PostPage() {
 
         <section className="mt-24 border-t border-sand pt-12 max-w-2xl mx-auto">
           <h2 className="font-serif text-3xl text-ink mb-2">
-            Kommentarer
+            {t.comments}
           </h2>
           <p className="text-[11px] uppercase tracking-[0.3em] text-rose mb-10">
             {post.comments.length === 0
-              ? "Inga kommentarer"
-              : `${post.comments.length} röster från då`}
+              ? t.noComments
+              : t.commentsCount(post.comments.length)}
           </p>
 
           {post.comments.length === 0 ? (
             <p className="font-serif italic text-ink/50">
-              Inga kommentarer på det här inlägget.
+              {t.noCommentsOnPost}
             </p>
           ) : (
             <ul className="space-y-8">
