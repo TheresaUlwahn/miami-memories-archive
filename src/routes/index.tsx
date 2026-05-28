@@ -276,9 +276,12 @@ function PostCard({ post }: { post: (typeof posts)[number] }) {
 
 
         <span className="block text-[10px] tracking-[0.2em] text-rose uppercase mb-2">
-          {formatDate(post.date)}
-        </span>
         <h2 className="font-serif text-2xl md:text-[1.7rem] group-hover:text-gold transition-colors leading-tight">
+          {post.title}
+        </h2>
+        <p className="mt-3 text-sm text-ink/65 leading-relaxed line-clamp-2 font-light">
+          {firstSentence(post.body)}
+        </p>
           {post.title}
         </h2>
       </Link>
