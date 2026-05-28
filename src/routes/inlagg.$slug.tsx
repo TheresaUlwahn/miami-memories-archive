@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteLayout } from "../components/SiteLayout";
+import { ScrollToTop } from "../components/ScrollToTop";
 import { getPost, formatDate, type Comment } from "../lib/posts";
 
 export const Route = createFileRoute("/inlagg/$slug")({
