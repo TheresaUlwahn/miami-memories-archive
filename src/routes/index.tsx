@@ -92,10 +92,17 @@ function HomePage() {
             <br className="hidden md:block" />
             Efter Miami. Hemma igen.
           </p>
-          <p className="max-w-2xl mx-auto text-sm md:text-base font-light leading-relaxed tracking-wide" style={{ color: "#2d676a" }}>
-            En berättelse skriven för att uppdatera familj och vänner långt bort — om vår resa västerut med våra Ulwungar. Långa dagboksinlägg fyllda med känslor, tankar och upplevelser, blandat med massor och återigen massor av bilder.
-            <span className="block mt-3">Om en flytt från Sverige till Miami — och tillbaka igen. Skrivna mellan 2015 och 2018, arkiverade här.</span>
-          </p>
+          <div className="max-w-2xl mx-auto rounded-lg px-6 py-5 bg-ink/35 backdrop-blur-sm">
+            <p className="text-base md:text-lg font-light leading-relaxed tracking-wide text-white [text-shadow:_0_1px_2px_rgba(0,0,0,0.45)]">
+              Om en flytt från Sverige till Miami — och tillbaka igen.
+            </p>
+            <p className="mt-4 text-sm md:text-base font-light leading-relaxed tracking-wide text-white/95 [text-shadow:_0_1px_2px_rgba(0,0,0,0.45)]">
+              Inlägg skrivna för att hålla kontakten och uppdatera familj och vänner långt bort — om vår resa västerut. Långa dagboksinlägg fyllda med känslor, tankar och upplevelser, blandade med massor av bilder och massor av minnen.
+            </p>
+            <p className="mt-3 text-xs md:text-sm font-light tracking-[0.15em] uppercase text-white/80 [text-shadow:_0_1px_2px_rgba(0,0,0,0.45)]">
+              Skrivna mellan 2015 och 2018, arkiverade här.
+            </p>
+          </div>
         </div>
 
       </section>
