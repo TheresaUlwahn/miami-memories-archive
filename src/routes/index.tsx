@@ -250,13 +250,13 @@ function PostCard({ post }: { post: (typeof posts)[number] }) {
   return (
     <article className="group">
       <Link to="/inlagg/$slug" params={{ slug: post.slug }} className="block">
-        <div className="overflow-hidden bg-sand aspect-square mb-5 relative">
+        <div className="overflow-hidden bg-sand mb-5 relative">
           {post.images[0] && (
             <img
               src={post.images[0]}
               alt=""
               loading="lazy"
-              className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 [filter:saturate(0.85)_contrast(1.05)_brightness(0.97)] group-hover:[filter:saturate(1)_contrast(1.02)_brightness(1)]"
+              className="block w-full h-auto transition-all duration-700 group-hover:scale-[1.03] [filter:saturate(0.85)_contrast(1.05)_brightness(0.97)] group-hover:[filter:saturate(1)_contrast(1.02)_brightness(1)]"
               onError={(e) => {
                 (e.currentTarget as HTMLImageElement).style.visibility =
                   "hidden";
