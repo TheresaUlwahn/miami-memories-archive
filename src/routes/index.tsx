@@ -164,8 +164,8 @@ function HomePage() {
             </div>
           </div>
 
+          <div className="flex gap-3 text-[11px] uppercase tracking-widest items-center">
             <span className="text-ink/40">{t.sort}:</span>
-            <span className="text-ink/40">Sortera:</span>
             <button
               onClick={() => setOrder("newest")}
               className={`cursor-pointer transition-colors ${
@@ -174,7 +174,7 @@ function HomePage() {
                   : "text-ink/40 hover:text-ink"
               }`}
             >
-              Nyaste först
+              {t.newestFirst}
             </button>
             <button
               onClick={() => setOrder("oldest")}
@@ -184,19 +184,17 @@ function HomePage() {
                   : "text-ink/40 hover:text-ink"
               }`}
             >
-              Äldsta först
+              {t.oldestFirst}
             </button>
           </div>
-          <Link
-            to="/om"
+          <div
             aria-hidden={!isStuck}
-            tabIndex={isStuck ? 0 : -1}
-            className={`text-xs md:text-sm tracking-widest uppercase text-ink/80 hover:text-gold transition-all duration-300 ${
+            className={`transition-opacity duration-300 ${
               isStuck ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
           >
-            Om
-          </Link>
+            <NavActions variant="dark" />
+          </div>
         </div>
       </div>
 
