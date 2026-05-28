@@ -222,13 +222,12 @@ function AboutPage() {
           <p className="font-serif italic text-xl text-ink/70">
             Tack för att du läser.
           </p>
+        </section>
       </article>
       {lightbox && (
         <Lightbox src={lightbox} onClose={() => setLightbox(null)} />
       )}
     </SiteLayout>
   );
-}
-
 }
 
