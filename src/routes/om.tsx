@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "../components/SiteLayout";
+import theresaHero from "../assets/theresa-palma-mural.jpg";
+
 
 export const Route = createFileRoute("/om")({
   component: AboutPage,
@@ -14,7 +16,6 @@ export const Route = createFileRoute("/om")({
     ],
   }),
 });
-
 const galleryImages = [
   "/images/2015/07/image46.webp",
   "/images/2015/07/image39.webp",
@@ -28,7 +29,10 @@ const galleryImages = [
   "/images/2015/07/image50.webp",
   "/images/2015/07/image52.webp",
   "/images/2015/07/image51.webp",
+  "/images/2018/07/IMG_5435.webp",
 ];
+
+
 
 function ExternalLink({
   href,
@@ -69,13 +73,14 @@ function AboutPage() {
 
         <figure className="mt-12 overflow-hidden bg-sand">
           <img
-            src="/images/2018/07/IMG_5435.webp"
-            alt="Theresa Ulwahn"
-            loading="lazy"
+            src={theresaHero}
+            alt="Theresa Ulwahn i Palma de Mallorca"
+            loading="eager"
             decoding="async"
             className="w-full h-auto object-cover"
           />
         </figure>
+
 
         <section className="mt-14">
           <p className="text-[11px] uppercase tracking-[0.3em] text-gold mb-4">
