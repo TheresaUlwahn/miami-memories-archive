@@ -43,6 +43,7 @@ export const Route = createFileRoute("/inlagg/$slug")({
 
 function PostPage() {
   const { post } = Route.useLoaderData();
+  const { t } = useLang();
 
   return (
     <SiteLayout>
