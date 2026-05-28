@@ -224,7 +224,7 @@ function HomePage() {
 
         <div className="mt-24 md:mt-32 pt-10 border-t border-sand text-center">
           <p className="text-[11px] tracking-[0.4em] uppercase text-ink/50">
-            {filtered.length} inlägg{year !== "all" ? ` från ${year}` : ""}
+            {t.postsCount(filtered.length, year !== "all" ? year : null)}
           </p>
         </div>
       </main>
