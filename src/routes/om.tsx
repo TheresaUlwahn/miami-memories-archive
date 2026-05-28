@@ -67,6 +67,10 @@ function AboutPage() {
           </h1>
           <p className="mt-4 font-serif text-2xl text-ink/70 italic">
             Theresa Ulwahn
+          </p>
+          <div className="mt-8 mx-auto w-16 h-px bg-gold/60" />
+        </header>
+
         <figure className="mt-12 overflow-hidden bg-sand">
           <img
             src={theresaHero}
@@ -77,10 +81,6 @@ function AboutPage() {
           />
         </figure>
 
-            decoding="async"
-            className="w-full h-auto object-cover"
-          />
-        </figure>
 
         <section className="mt-14">
           <p className="text-[11px] uppercase tracking-[0.3em] text-gold mb-4">
