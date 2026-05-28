@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { posts, formatDate } from "../lib/posts";
 import heroImage from "../assets/hero-miami.jpg";
+import { ScrollToTop } from "../components/ScrollToTop";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
