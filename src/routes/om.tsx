@@ -16,7 +16,6 @@ export const Route = createFileRoute("/om")({
     ],
   }),
 });
-
 const galleryImages = [
   "/images/2015/07/image46.webp",
   "/images/2015/07/image39.webp",
@@ -30,6 +29,9 @@ const galleryImages = [
   "/images/2015/07/image50.webp",
   "/images/2015/07/image52.webp",
   "/images/2015/07/image51.webp",
+  "/images/2018/07/IMG_5435.webp",
+];
+
 ];
 
 function ExternalLink({
