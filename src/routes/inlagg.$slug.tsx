@@ -170,11 +170,18 @@ function groupBlocks(blocks: Block[]): Block[] {
   }
   return out;
 }
-
 function PostBody({ body, fallbackImages }: { body: string; fallbackImages: string[] }) {
   const blocks = groupBlocks(parseBlocks(body));
   const inline = hasInlineImages(body);
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
   let firstTextSeen = false;
+
+  const imgProtect = {
+    onContextMenu: (e: React.MouseEvent) => e.preventDefault(),
+    onDragStart: (e: React.DragEvent) => e.preventDefault(),
+    draggable: false,
+    style: { WebkitUserSelect: "none", userSelect: "none", WebkitTouchCallout: "none" } as React.CSSProperties,
+  };
 
   return (
     <div className="max-w-5xl mx-auto px-2 md:px-0">
@@ -183,7 +190,9 @@ function PostBody({ body, fallbackImages }: { body: string; fallbackImages: stri
           <img
             src={fallbackImages[0]}
             alt=""
-            className="w-full h-full object-cover"
+            {...imgProtect}
+            onClick={() => setLightbox({ src: fallbackImages[0], alt: "" })}
+            className="w-full h-full object-cover cursor-zoom-in"
             onError={(e) => {
               (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
             }}
@@ -214,7 +223,9 @@ function PostBody({ body, fallbackImages }: { body: string; fallbackImages: stri
                   src={b.src}
                   alt={b.alt}
                   loading="lazy"
-                  className="block w-full h-auto bg-sand"
+                  {...imgProtect}
+                  onClick={() => setLightbox({ src: b.src, alt: b.alt })}
+                  className="block w-full h-auto bg-sand cursor-zoom-in"
                   onError={(e) => {
                     (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
                   }}
@@ -232,7 +243,9 @@ function PostBody({ body, fallbackImages }: { body: string; fallbackImages: stri
                     src={im.src}
                     alt={im.alt}
                     loading="lazy"
-                    className="block w-full h-auto"
+                    {...imgProtect}
+                    onClick={() => setLightbox({ src: im.src, alt: im.alt })}
+                    className="block w-full h-auto cursor-zoom-in"
                     onError={(e) => {
                       (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
                     }}
@@ -243,7 +256,18 @@ function PostBody({ body, fallbackImages }: { body: string; fallbackImages: stri
           );
         })}
       </div>
+
+      {lightbox && (
+        <Lightbox
+          src={lightbox.src}
+          alt={lightbox.alt}
+          onClose={() => setLightbox(null)}
+        />
+      )}
     </div>
+  );
+}
+
   );
 }
 
