@@ -32,10 +32,38 @@ export const Route = createFileRoute("/")({
   }),
 });
 
+const ARCHIVE_SCROLL_KEY = "archiveScrollY";
+
+function saveArchiveScroll() {
+  try {
+    sessionStorage.setItem(ARCHIVE_SCROLL_KEY, String(window.scrollY));
+  } catch {}
+}
+
+function clearArchiveScroll() {
+  try {
+    sessionStorage.removeItem(ARCHIVE_SCROLL_KEY);
+  } catch {}
+}
+
 function HomePage() {
   const { t } = useLang();
   const [order, setOrder] = useState<"newest" | "oldest">("oldest");
   const [year, setYear] = useState<string>("all");
+
+  // Restore scroll position when returning from a post via "Tillbaka till arkivet"
+  useEffect(() => {
+    try {
+      const y = sessionStorage.getItem(ARCHIVE_SCROLL_KEY);
+      if (y !== null) {
+        sessionStorage.removeItem(ARCHIVE_SCROLL_KEY);
+        requestAnimationFrame(() => {
+          window.scrollTo({ top: Number(y), behavior: "auto" });
+        });
+      }
+    } catch {}
+  }, []);
+
 
   const years = useMemo(() => {
     const set = new Set(posts.map((p) => p.date.slice(0, 4)));
