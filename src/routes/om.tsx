@@ -74,11 +74,9 @@ function AboutPage() {
             {t.aboutChip}
           </p>
           <h1 className="mt-4 font-serif text-5xl md:text-6xl text-ink leading-[1.05] font-light">
-            {t.whoAmI}
+            Jag, Theresa
           </h1>
-          <p className="mt-4 font-serif text-2xl text-ink/70 italic">
-            Theresa Ulwahn
-          </p>
+
           <div className="mt-8 mx-auto w-16 h-px bg-gold/60" />
         </header>
 
