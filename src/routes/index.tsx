@@ -101,7 +101,7 @@ function HomePage() {
           <NavActions variant="light" />
         </header>
 
-        <div className="relative z-10 text-center px-6 max-w-4xl">
+        <div className="relative z-10 text-center px-6 max-w-4xl -translate-y-[20%] lg:translate-y-0">
           <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl text-white mb-5 leading-[1.05] font-light">
             Miami–Ulwarna
           </h1>
