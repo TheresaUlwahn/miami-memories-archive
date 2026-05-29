@@ -206,20 +206,7 @@ function PostBody({ body, fallbackImages }: { body: string; fallbackImages: stri
 
   return (
     <div className="max-w-5xl mx-auto px-2 md:px-0">
-      {!inline && fallbackImages[0] && (
-        <figure className="hidden md:block mb-16 overflow-hidden bg-sand aspect-[16/9]">
-          <img
-            src={fallbackImages[0]}
-            alt=""
-            {...imgProtect}
-            onClick={() => setLightbox({ src: fallbackImages[0], alt: "" })}
-            className="w-full h-full object-cover cursor-zoom-in"
-            onError={(e) => {
-              (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
-            }}
-          />
-        </figure>
-      )}
+      {!inline && false && fallbackImages[0] && null}
 
       <div className="text-ink/85 font-sans">
         {blocks.map((b, i) => {
