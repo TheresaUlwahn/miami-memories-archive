@@ -55,6 +55,22 @@ function PostPage() {
         {t.backToArchive}
       </Link>
       <article>
+        {post.images[0] && (
+          <figure className="md:hidden -mx-6 mb-10 overflow-hidden bg-sand aspect-[4/3]">
+            <img
+              src={post.images[0]}
+              alt=""
+              className="w-full h-full object-cover"
+              onContextMenu={(e) => e.preventDefault()}
+              onDragStart={(e) => e.preventDefault()}
+              draggable={false}
+              style={{ WebkitUserSelect: "none", userSelect: "none", WebkitTouchCallout: "none" }}
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
+              }}
+            />
+          </figure>
+        )}
         <header className="mt-8 mb-12 text-center max-w-3xl mx-auto">
           <div className="text-[11px] uppercase tracking-[0.3em] text-rose mb-4">
             {formatDate(post.date)}
@@ -188,7 +204,7 @@ function PostBody({ body, fallbackImages }: { body: string; fallbackImages: stri
   return (
     <div className="max-w-5xl mx-auto px-2 md:px-0">
       {!inline && fallbackImages[0] && (
-        <figure className="mb-16 overflow-hidden bg-sand aspect-[16/9]">
+        <figure className="hidden md:block mb-16 overflow-hidden bg-sand aspect-[16/9]">
           <img
             src={fallbackImages[0]}
             alt=""
