@@ -73,7 +73,7 @@ function HomePage() {
   return (
     <div className="min-h-screen w-full bg-cream text-ink">
       {/* Cinematic Hero */}
-      <section className="relative h-[88vh] min-h-[560px] w-full flex items-start lg:items-center justify-center overflow-hidden pt-[30vh] lg:pt-0">
+      <section className="relative h-[88vh] min-h-[560px] w-full flex items-center justify-center overflow-hidden">
         <img
           src={heroImage}
           alt="Miami sunset"
@@ -101,7 +101,7 @@ function HomePage() {
           <NavActions variant="light" />
         </header>
 
-        <div className="relative z-10 text-center px-6 max-w-4xl">
+        <div className="relative z-10 text-center px-6 max-w-4xl -translate-y-[20%] lg:translate-y-0">
           <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl text-white mb-5 leading-[1.05] font-light">
             Miami–Ulwarna
           </h1>
