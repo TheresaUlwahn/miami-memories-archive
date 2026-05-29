@@ -58,11 +58,11 @@ function PostPage() {
         {(() => {
           const heroImg = getPresentationImage(post);
           return heroImg ? (
-            <figure className="-mx-6 md:mx-0 mb-10 md:mb-14 overflow-hidden bg-sand aspect-[4/3] md:aspect-[21/9]">
+            <figure className="-mx-6 md:mx-0 mb-10 md:mb-14 overflow-hidden bg-sand flex items-center justify-center max-h-[85vh] md:max-h-[75vh]">
               <img
                 src={heroImg}
                 alt=""
-                className="w-full h-full object-cover"
+                className="w-auto h-auto max-w-full max-h-[85vh] md:max-h-[75vh] object-contain"
                 onContextMenu={(e) => e.preventDefault()}
                 onDragStart={(e) => e.preventDefault()}
                 draggable={false}
