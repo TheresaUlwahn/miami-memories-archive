@@ -161,8 +161,10 @@ function HomePage() {
             tabIndex={isStuck ? 0 : -1}
             onClick={(e) => {
               e.preventDefault();
+              clearArchiveScroll();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
+
             className={`font-serif text-xl tracking-[0.25em] uppercase font-light text-ink whitespace-nowrap transition-opacity duration-300 cursor-pointer ${
               isStuck ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
