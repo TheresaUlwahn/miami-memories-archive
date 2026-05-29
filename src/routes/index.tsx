@@ -32,10 +32,38 @@ export const Route = createFileRoute("/")({
   }),
 });
 
+const ARCHIVE_SCROLL_KEY = "archiveScrollY";
+
+function saveArchiveScroll() {
+  try {
+    sessionStorage.setItem(ARCHIVE_SCROLL_KEY, String(window.scrollY));
+  } catch {}
+}
+
+function clearArchiveScroll() {
+  try {
+    sessionStorage.removeItem(ARCHIVE_SCROLL_KEY);
+  } catch {}
+}
+
 function HomePage() {
   const { t } = useLang();
   const [order, setOrder] = useState<"newest" | "oldest">("oldest");
   const [year, setYear] = useState<string>("all");
+
+  // Restore scroll position when returning from a post via "Tillbaka till arkivet"
+  useEffect(() => {
+    try {
+      const y = sessionStorage.getItem(ARCHIVE_SCROLL_KEY);
+      if (y !== null) {
+        sessionStorage.removeItem(ARCHIVE_SCROLL_KEY);
+        requestAnimationFrame(() => {
+          window.scrollTo({ top: Number(y), behavior: "auto" });
+        });
+      }
+    } catch {}
+  }, []);
+
 
   const years = useMemo(() => {
     const set = new Set(posts.map((p) => p.date.slice(0, 4)));
@@ -94,10 +122,12 @@ function HomePage() {
         <header className="absolute top-0 left-0 right-0 z-20 flex justify-between items-center px-6 md:px-16 py-8">
           <Link
             to="/"
+            onClick={clearArchiveScroll}
             className="font-serif text-xl tracking-[0.25em] uppercase font-light text-white"
           >
             Miami–Ulwarna
           </Link>
+
           <NavActions variant="light" />
         </header>
 
@@ -131,8 +161,10 @@ function HomePage() {
             tabIndex={isStuck ? 0 : -1}
             onClick={(e) => {
               e.preventDefault();
+              clearArchiveScroll();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
+
             className={`font-serif text-xl tracking-[0.25em] uppercase font-light text-ink whitespace-nowrap transition-opacity duration-300 cursor-pointer ${
               isStuck ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
@@ -256,7 +288,7 @@ function HomePage() {
 function FeaturedCard({ post }: { post: (typeof posts)[number] }) {
   return (
     <article className="group lg:col-span-2">
-      <Link to="/inlagg/$slug" params={{ slug: post.slug }} className="block">
+      <Link to="/inlagg/$slug" params={{ slug: post.slug }} onClick={saveArchiveScroll} className="block">
         <div className="overflow-hidden bg-sand aspect-[16/9] mb-8 relative">
           {getPresentationImage(post) && (
             <img
@@ -299,7 +331,7 @@ function FeaturedCard({ post }: { post: (typeof posts)[number] }) {
 function PostCard({ post }: { post: (typeof posts)[number] }) {
   return (
     <article className="group">
-      <Link to="/inlagg/$slug" params={{ slug: post.slug }} className="block">
+      <Link to="/inlagg/$slug" params={{ slug: post.slug }} onClick={saveArchiveScroll} className="block">
         <div className="overflow-hidden bg-sand mb-5 relative">
           {getPresentationImage(post) && (
             <img

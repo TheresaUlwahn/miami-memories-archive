@@ -11,10 +11,14 @@ export function SiteLayout({ children }: { children?: ReactNode }) {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-10 py-8">
           <Link
             to="/"
+            onClick={() => {
+              try { sessionStorage.removeItem("archiveScrollY"); } catch {}
+            }}
             className="font-serif text-2xl tracking-widest uppercase text-ink"
           >
             Miami–Ulwarna
           </Link>
+
           <NavActions variant="dark" />
         </div>
       </header>
