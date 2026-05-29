@@ -288,7 +288,7 @@ function HomePage() {
 function FeaturedCard({ post }: { post: (typeof posts)[number] }) {
   return (
     <article className="group lg:col-span-2">
-      <Link to="/inlagg/$slug" params={{ slug: post.slug }} className="block">
+      <Link to="/inlagg/$slug" params={{ slug: post.slug }} onClick={saveArchiveScroll} className="block">
         <div className="overflow-hidden bg-sand aspect-[16/9] mb-8 relative">
           {getPresentationImage(post) && (
             <img
