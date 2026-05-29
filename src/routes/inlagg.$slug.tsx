@@ -58,7 +58,7 @@ function PostPage() {
         {(() => {
           const heroImg = getPresentationImage(post);
           return heroImg ? (
-            <figure className="-mx-6 md:mx-0 mb-10 md:mb-14 overflow-hidden bg-sand flex items-center justify-center max-h-[85vh] md:max-h-[75vh]">
+            <figure className="-mx-6 md:mx-0 mb-10 md:mb-14 overflow-hidden flex items-center justify-center max-h-[85vh] md:max-h-[75vh]">
               <img
                 src={heroImg}
                 alt=""
