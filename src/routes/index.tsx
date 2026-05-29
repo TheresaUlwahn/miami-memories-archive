@@ -122,10 +122,12 @@ function HomePage() {
         <header className="absolute top-0 left-0 right-0 z-20 flex justify-between items-center px-6 md:px-16 py-8">
           <Link
             to="/"
+            onClick={clearArchiveScroll}
             className="font-serif text-xl tracking-[0.25em] uppercase font-light text-white"
           >
             Miami–Ulwarna
           </Link>
+
           <NavActions variant="light" />
         </header>
 
