@@ -103,7 +103,7 @@ function HomePage() {
 
         <div className="relative z-10 text-center px-6 max-w-4xl -translate-y-[15vh] md:-translate-y-[18vh] lg:translate-y-0">
           <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl text-white mb-5 leading-[1.05] font-light">
-            Miami–Ulwarna
+            <span className="block lg:inline">Miami–</span><span className="block lg:inline">Ulwarna</span>
           </h1>
           <p className="font-serif italic text-xl md:text-2xl text-white font-light leading-snug mb-6 [text-shadow:_0_2px_4px_rgba(0,0,0,0.9),_0_4px_18px_rgba(0,0,0,0.85),_0_0_30px_rgba(0,0,0,0.6)]">
             Familjeäventyr, vardagsliv och drömmar.{" "}
