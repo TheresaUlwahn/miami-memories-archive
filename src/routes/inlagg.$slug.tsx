@@ -55,22 +55,25 @@ function PostPage() {
         {t.backToArchive}
       </Link>
       <article>
-        {post.images[0] && (
-          <figure className="md:hidden -mx-6 mb-10 overflow-hidden bg-sand aspect-[4/3]">
-            <img
-              src={post.images[0]}
-              alt=""
-              className="w-full h-full object-cover"
-              onContextMenu={(e) => e.preventDefault()}
-              onDragStart={(e) => e.preventDefault()}
-              draggable={false}
-              style={{ WebkitUserSelect: "none", userSelect: "none", WebkitTouchCallout: "none" }}
-              onError={(e) => {
-                (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
-              }}
-            />
-          </figure>
-        )}
+        {(() => {
+          const heroImg = getPresentationImage(post);
+          return heroImg ? (
+            <figure className="md:hidden -mx-6 mb-10 overflow-hidden bg-sand aspect-[4/3]">
+              <img
+                src={heroImg}
+                alt=""
+                className="w-full h-full object-cover"
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
+                draggable={false}
+                style={{ WebkitUserSelect: "none", userSelect: "none", WebkitTouchCallout: "none" }}
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
+                }}
+              />
+            </figure>
+          ) : null;
+        })()}
         <header className="mt-8 mb-12 text-center max-w-3xl mx-auto">
           <div className="text-[11px] uppercase tracking-[0.3em] text-rose mb-4">
             {formatDate(post.date)}
