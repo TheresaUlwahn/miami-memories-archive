@@ -74,11 +74,9 @@ function AboutPage() {
             {t.aboutChip}
           </p>
           <h1 className="mt-4 font-serif text-5xl md:text-6xl text-ink leading-[1.05] font-light">
-            {t.whoAmI}
+            Jag, Theresa
           </h1>
-          <p className="mt-4 font-serif text-2xl text-ink/70 italic">
-            Theresa Ulwahn
-          </p>
+
           <div className="mt-8 mx-auto w-16 h-px bg-gold/60" />
         </header>
 
@@ -100,6 +98,12 @@ function AboutPage() {
             Idag
           </p>
           <p className="text-ink/85 leading-[1.85] text-[17px]">
+            Nedtecknade för att hålla kontakten och uppdatera familj och vänner
+            långt bort — om vår resa västerut. Långa dagboksinlägg fyllda med
+            känslor, tankar och upplevelser, blandade med massor av bilder och
+            massor av minnen.
+          </p>
+          <p className="mt-6 text-ink/85 leading-[1.85] text-[17px]">
             Den här bloggen skrevs mellan 2015 och 2018, mitt i flytten från
             Sverige till Miami och tillbaka. Idag bor jag i Palma de Mallorca
             och driver{" "}
@@ -111,6 +115,7 @@ function AboutPage() {
             TUI. Arkivet här lever kvar för minnenas skull.
           </p>
         </section>
+
 
         <section className="mt-14 border-t border-sand pt-10">
           <p className="text-[11px] uppercase tracking-[0.3em] text-gold mb-6">
