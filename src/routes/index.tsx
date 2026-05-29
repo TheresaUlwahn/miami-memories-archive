@@ -34,7 +34,7 @@ export const Route = createFileRoute("/")({
 
 function HomePage() {
   const { t } = useLang();
-  const [order, setOrder] = useState<"newest" | "oldest">("newest");
+  const [order, setOrder] = useState<"newest" | "oldest">("oldest");
   const [year, setYear] = useState<string>("all");
 
   const years = useMemo(() => {
