@@ -73,10 +73,6 @@ function AboutPage() {
           <p className="text-[11px] uppercase tracking-[0.3em] text-rose">
             {t.aboutChip}
           </p>
-          <h1 className="mt-4 font-serif text-5xl md:text-6xl text-ink leading-[1.05] font-light">
-            Jag, Theresa
-          </h1>
-
           <div className="mt-8 mx-auto w-16 h-px bg-gold/60" />
         </header>
 
@@ -98,23 +94,23 @@ function AboutPage() {
             Idag
           </p>
           <p className="text-ink/85 leading-[1.85] text-[17px]">
-            Nedtecknade för att hålla kontakten och uppdatera familj och vänner
-            långt bort — om vår resa västerut. Långa dagboksinlägg fyllda med
-            känslor, tankar och upplevelser, blandade med massor av bilder och
-            massor av minnen.
+            Idag bor jag i Palma de Mallorca och driver{" "}
+            <ExternalLink href="https://fruulw.se">
+              FruUlw Consulting
+            </ExternalLink>
+            , där jag designar och bygger hemsidor, appar och digitala
+            produkter. Tidigare har jag jobbat på King, Peltarion, Deloitte,
+            Hilton och TUI.
           </p>
           <p className="mt-6 text-ink/85 leading-[1.85] text-[17px]">
             Den här bloggen skrevs mellan 2015 och 2018, mitt i flytten från
-            Sverige till Miami och tillbaka. Idag bor jag i Palma de Mallorca
-            och driver{" "}
-            <ExternalLink href="https://fruulw.se">
-              FruUlw Consulting
-            </ExternalLink>{" "}
-            — jag designar och bygger hemsidor, appar och digitala produkter.
-            Tidigare har jag jobbat på King, Peltarion, Deloitte, Hilton och
-            TUI. Arkivet här lever kvar för minnenas skull.
+            Sverige till Miami och tillbaka — nedtecknad för att hålla
+            kontakten med familj och vänner långt bort. Långa dagboksinlägg
+            fyllda med känslor, tankar och upplevelser, blandade med massor av
+            bilder och minnen. Arkivet lever kvar här för minnenas skull.
           </p>
         </section>
+
 
 
         <section className="mt-14 border-t border-sand pt-10">
