@@ -331,7 +331,7 @@ function FeaturedCard({ post }: { post: (typeof posts)[number] }) {
 function PostCard({ post }: { post: (typeof posts)[number] }) {
   return (
     <article className="group">
-      <Link to="/inlagg/$slug" params={{ slug: post.slug }} className="block">
+      <Link to="/inlagg/$slug" params={{ slug: post.slug }} onClick={saveArchiveScroll} className="block">
         <div className="overflow-hidden bg-sand mb-5 relative">
           {getPresentationImage(post) && (
             <img
