@@ -73,7 +73,7 @@ function HomePage() {
   return (
     <div className="min-h-screen w-full bg-cream text-ink">
       {/* Cinematic Hero */}
-      <section className="relative h-[88vh] min-h-[560px] w-full flex items-center justify-center overflow-hidden">
+      <section className="relative h-[88vh] min-h-[560px] w-full flex items-start md:items-center justify-center overflow-hidden pt-[30vh] md:pt-0">
         <img
           src={heroImage}
           alt="Miami sunset"

@@ -94,7 +94,18 @@ function AboutPage() {
             Idag
           </p>
           <p className="text-ink/85 leading-[1.85] text-[17px]">
-            Idag bor jag i Palma de Mallorca och driver{" "}
+            Idag bor jag i Palma på Mallorca tillsammans med P och vovvan
+            WilMa som hunnit bli 8 år. Ja, det är 8 år sen vi kom hem från
+            Miami. Och mycket har hänt sen dess. Vi flyttade ner hit för 3 år
+            sedan, samtidigt som Lille Lorden drog norröver, spenderade 2 år
+            i Boden vid försvaret (militärtjänstgöring &amp; anställd) och nu
+            avklarat sitt första år på Umeå Universitet. Och lillan, min
+            Duchess, hon avslutar sitt sista år på gymnasiet här med oss på
+            Mallorca på Svenska Skolan och livet väntar runt hörnet. Vad hon
+            ska göra — det får framtiden utvisa.
+          </p>
+          <p className="mt-6 text-ink/85 leading-[1.85] text-[17px]">
+            Jag själv driver{" "}
             <ExternalLink href="https://fruulw.se">
               FruUlw Consulting
             </ExternalLink>
