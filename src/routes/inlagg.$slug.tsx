@@ -58,7 +58,7 @@ function PostPage() {
         {(() => {
           const heroImg = getPresentationImage(post);
           return heroImg ? (
-            <figure className="-mx-6 md:-mx-10 mb-10 md:mb-14 overflow-hidden bg-sand aspect-[4/3] md:aspect-[21/9]">
+            <figure className="-mx-6 md:mx-0 mb-10 md:mb-14 overflow-hidden bg-sand aspect-[4/3] md:aspect-[21/9]">
               <img
                 src={heroImg}
                 alt=""
