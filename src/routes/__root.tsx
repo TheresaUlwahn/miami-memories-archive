@@ -85,8 +85,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "En personlig blogg och digitalt arkiv från en flytt mellan Sverige och Miami, 2015–2018." },
       { property: "og:description", content: "En personlig blogg och digitalt arkiv från en flytt mellan Sverige och Miami, 2015–2018." },
       { name: "twitter:description", content: "En personlig blogg och digitalt arkiv från en flytt mellan Sverige och Miami, 2015–2018." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/xgxmNEHoiDRleToZXHl0ekxWpeq2/social-images/social-1780011473559-Screenshot_2026-05-29_at_01.34.51.webp" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/xgxmNEHoiDRleToZXHl0ekxWpeq2/social-images/social-1780011473559-Screenshot_2026-05-29_at_01.34.51.webp" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/xgxmNEHoiDRleToZXHl0ekxWpeq2/social-images/social-1780576268364-Screenshot_2026-06-04_at_14.30.53.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/xgxmNEHoiDRleToZXHl0ekxWpeq2/social-images/social-1780576268364-Screenshot_2026-06-04_at_14.30.53.webp" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
