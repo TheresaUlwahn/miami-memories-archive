@@ -13,19 +13,40 @@ import { LangProvider } from "../lib/i18n";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+    <div
+      className="flex min-h-screen items-center justify-center px-6"
+      style={{ backgroundColor: "#f7f1e8" }}
+    >
+      <div className="max-w-lg text-center">
+        <p
+          className="text-sm tracking-[0.2em] uppercase"
+          style={{ color: "#c89968", fontFamily: "'Inter', sans-serif" }}
+        >
+          Sidan hittades inte
         </p>
-        <div className="mt-6">
+        <h1
+          className="mt-3 text-6xl font-medium"
+          style={{ color: "#2d2520", fontFamily: "'Fraunces', serif" }}
+        >
+          404
+        </h1>
+        <p
+          className="mt-4 text-base leading-relaxed"
+          style={{ color: "#5c4f42", fontFamily: "'Inter', sans-serif" }}
+        >
+          Sidan du letar efter finns inte längre eller har flyttats. Kanske
+          hittar du den i arkivet istället.
+        </p>
+        <div className="mt-8">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium tracking-wide text-white transition-colors hover:opacity-90"
+            style={{
+              backgroundColor: "#2d2520",
+              fontFamily: "'Inter', sans-serif",
+            }}
           >
-            Go home
+            Tillbaka till arkivet
           </Link>
         </div>
       </div>
