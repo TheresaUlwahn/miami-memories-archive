@@ -13,33 +13,31 @@ export const Route = createFileRoute("/inlagg/$slug")({
     if (!post) throw notFound();
     return { post };
   },
-  head: ({ loaderData }) => ({
-    meta: loaderData
-      ? [
-          { title: `${loaderData.post.title} · Miami–Ulwarna` },
-          {
-            name: "description",
-            content: loaderData.post.body.slice(0, 150),
-          },
-          {
-            property: "og:title",
-            content: `${loaderData.post.title} · Miami–Ulwarna`,
-          },
-          {
-            property: "og:description",
-            content: loaderData.post.body.slice(0, 150),
-          },
-          { property: "og:type", content: "article" },
-          ...(loaderData.post.images[0]
-            ? [
-                { property: "og:image", content: loaderData.post.images[0] },
-                { name: "twitter:card", content: "summary_large_image" },
-                { name: "twitter:image", content: loaderData.post.images[0] },
-              ]
-            : []),
-        ]
-      : [],
-  }),
+  head: ({ loaderData }) => {
+    if (!loaderData) return { meta: [] };
+    const presImg = getPresentationImage(loaderData.post);
+    const absImg = presImg
+      ? presImg.startsWith("http")
+        ? presImg
+        : `https://miami-ulwarna.se${presImg.startsWith("/") ? "" : "/"}${presImg}`
+      : undefined;
+    return {
+      meta: [
+        { title: `${loaderData.post.title} · Miami–Ulwarna` },
+        { name: "description", content: loaderData.post.body.slice(0, 150) },
+        { property: "og:title", content: `${loaderData.post.title} · Miami–Ulwarna` },
+        { property: "og:description", content: loaderData.post.body.slice(0, 150) },
+        { property: "og:type", content: "article" },
+        ...(absImg
+          ? [
+              { property: "og:image", content: absImg },
+              { name: "twitter:card", content: "summary_large_image" },
+              { name: "twitter:image", content: absImg },
+            ]
+          : []),
+      ],
+    };
+  },
 });
 
 function PostPage() {
