@@ -13,19 +13,40 @@ import { LangProvider } from "../lib/i18n";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+    <div
+      className="flex min-h-screen items-center justify-center px-6"
+      style={{ backgroundColor: "#f7f1e8" }}
+    >
+      <div className="max-w-lg text-center">
+        <p
+          className="text-sm tracking-[0.2em] uppercase"
+          style={{ color: "#c89968", fontFamily: "'Inter', sans-serif" }}
+        >
+          Sidan hittades inte
         </p>
-        <div className="mt-6">
+        <h1
+          className="mt-3 text-6xl font-medium"
+          style={{ color: "#2d2520", fontFamily: "'Fraunces', serif" }}
+        >
+          404
+        </h1>
+        <p
+          className="mt-4 text-base leading-relaxed"
+          style={{ color: "#5c4f42", fontFamily: "'Inter', sans-serif" }}
+        >
+          Sidan du letar efter finns inte längre eller har flyttats. Kanske
+          hittar du den i arkivet istället.
+        </p>
+        <div className="mt-8">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium tracking-wide text-white transition-colors hover:opacity-90"
+            style={{
+              backgroundColor: "#2d2520",
+              fontFamily: "'Inter', sans-serif",
+            }}
           >
-            Go home
+            Tillbaka till arkivet
           </Link>
         </div>
       </div>
@@ -38,29 +59,51 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   const router = useRouter();
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div
+      className="flex min-h-screen items-center justify-center px-6"
+      style={{ backgroundColor: "#f7f1e8" }}
+    >
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
-        </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
+        <p
+          className="text-sm tracking-[0.2em] uppercase"
+          style={{ color: "#c89968", fontFamily: "'Inter', sans-serif" }}
+        >
+          Ett fel uppstod
         </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
+        <h1
+          className="mt-3 text-3xl font-medium"
+          style={{ color: "#2d2520", fontFamily: "'Fraunces', serif" }}
+        >
+          Sidan kunde inte laddas
+        </h1>
+        <p
+          className="mt-3 text-sm leading-relaxed"
+          style={{ color: "#5c4f42", fontFamily: "'Inter', sans-serif" }}
+        >
+          Något gick fel när sidan skulle visas. Du kan prova att ladda om
+          eller gå tillbaka till startsidan.
+        </p>
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
           <button
             onClick={() => {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium text-white transition-colors hover:opacity-90"
+            style={{ backgroundColor: "#2d2520", fontFamily: "'Inter', sans-serif" }}
           >
-            Try again
+            Försök igen
           </button>
           <a
             href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+            className="inline-flex items-center justify-center border px-5 py-2.5 text-sm font-medium transition-colors hover:bg-[#e8d5b7]/30"
+            style={{
+              borderColor: "#2d2520",
+              color: "#2d2520",
+              fontFamily: "'Inter', sans-serif",
+            }}
           >
-            Go home
+            Till startsidan
           </a>
         </div>
       </div>
@@ -111,7 +154,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="sv">
       <head>
         <HeadContent />
       </head>
