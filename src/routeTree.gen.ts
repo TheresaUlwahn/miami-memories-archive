@@ -9,10 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as OmRouteImport } from './routes/om'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as InlaggSlugRouteImport } from './routes/inlagg.$slug'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OmRoute = OmRouteImport.update({
   id: '/om',
   path: '/om',
@@ -32,35 +38,46 @@ const InlaggSlugRoute = InlaggSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/om': typeof OmRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/inlagg/$slug': typeof InlaggSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/om': typeof OmRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/inlagg/$slug': typeof InlaggSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/om': typeof OmRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/inlagg/$slug': typeof InlaggSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/om' | '/inlagg/$slug'
+  fullPaths: '/' | '/om' | '/sitemap.xml' | '/inlagg/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/om' | '/inlagg/$slug'
-  id: '__root__' | '/' | '/om' | '/inlagg/$slug'
+  to: '/' | '/om' | '/sitemap.xml' | '/inlagg/$slug'
+  id: '__root__' | '/' | '/om' | '/sitemap.xml' | '/inlagg/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   OmRoute: typeof OmRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   InlaggSlugRoute: typeof InlaggSlugRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/om': {
       id: '/om'
       path: '/om'
@@ -88,8 +105,19 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   OmRoute: OmRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   InlaggSlugRoute: InlaggSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
